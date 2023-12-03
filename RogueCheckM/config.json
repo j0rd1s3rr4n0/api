@@ -16,6 +16,14 @@
       "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
       "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
       "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"
-    ]
+    ],
+    "target_domains": {
+        "Spotify" : "spotify.com",
+        "Netfix" : "netflix.com",
+        "Facebook" : "facebook.com",
+        "Instagram" : "instagram.com",
+        "X (Twitter)" : "twitter.com",
+        "LinkedIn" : "linkedin.com"
+    }
   }
   

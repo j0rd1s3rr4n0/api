@@ -16,7 +16,16 @@
         "https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
         "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
         "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
-        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all",
+        "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
+        "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_anonymous/http.txt",
+        "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_geolocation/http.txt",
+        "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_geolocation_anonymous/http.txt"
+
+
+
+
+
     ],
     "target_domains": {
         "Spotify": "spotify.com",

@@ -6,7 +6,7 @@
         "google_check": "https://www.google.com"
     },
     "proxy_sources": [
-        "https://raw.githubusercontent.com/j0rd1s3rr4n0/api/main/proxy/http_proxies.txt",
+        "https://j0rd1s3rr4n0.github.io/api/proxy/http.txt",
         "https://www.proxy-list.download/api/v1/get?type=http",
         "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all",
         "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",

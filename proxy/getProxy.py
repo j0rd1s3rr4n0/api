@@ -85,9 +85,9 @@ def guardar_en_archivo(ip_port):
     with lock:
         with open(archivo_path, "a") as archivo:
             archivo.write(ip_port + "\n")
-        print(f"La dirección {ip_port} se ha guardado en el archivo {archivo_path}")
+        #print(f"La dirección {ip_port} se ha guardado en el archivo {archivo_path}")
 
-def realizar_solicitudes_concurrentes(max_intentos=10000):
+def realizar_solicitudes_concurrentes(max_intentos=100):
     # Función principal para realizar solicitudes concurrentes
     intentos = 0
     protocolo_http_encontrado = False
@@ -98,7 +98,7 @@ def realizar_solicitudes_concurrentes(max_intentos=10000):
             gimmeproxy_future = executor.submit(obtener_proxy_gimmeproxy)
             gimmeproxy_proxy = gimmeproxy_future.result()
 
-            for i in range(3000):
+            for i in range(10):
                 if gimmeproxy_proxy:
                     protocolo = gimmeproxy_proxy.get("protocol", "")
                     ip_port = gimmeproxy_proxy.get("ipPort", "")
@@ -154,7 +154,7 @@ def realizar_solicitudes_concurrentes(max_intentos=10000):
 
 def eliminar_duplicados(archivo_entrada, archivo_salida):
     try:
-        with open(archivo_entrada, 'r') as entrada, open(archivo_salida, 'w') as salida:
+        with open(archivo_entrada, 'r') as entrada, open(archivo_salida, 'a') as salida:
             lineas = set(entrada.readlines())
             salida.writelines(sorted(lineas))
         print(f"Duplicados eliminados. Resultado guardado en {archivo_salida}")

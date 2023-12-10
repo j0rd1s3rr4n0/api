@@ -87,7 +87,7 @@ def guardar_en_archivo(ip_port):
             archivo.write(ip_port + "\n")
         #print(f"La dirección {ip_port} se ha guardado en el archivo {archivo_path}")
 
-def realizar_solicitudes_concurrentes(max_intentos=100):
+def realizar_solicitudes_concurrentes(max_intentos=10):
     # Función principal para realizar solicitudes concurrentes
     intentos = 0
     protocolo_http_encontrado = False

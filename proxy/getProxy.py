@@ -2,11 +2,35 @@ import requests
 import re
 import os
 import base64
+import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
 
 lock = Lock()
+def commit_push_y_borrar_archivos():
+    try:
+        # Hacer commit de todos los cambios
+        subprocess.run(["git", "add", "."])
+        subprocess.run(["git", "commit", "-m", "Update proxyList"])
 
+        # Hacer push
+        subprocess.run(["git", "push"])
+
+        # Eliminar http_proxies.txt
+        os.remove("http_proxies.txt")
+        print("Archivo http_proxies.txt eliminado.")
+
+        # Renombrar http.txt a http_proxies.txt
+        os.rename("http.txt", "http_proxies.txt")
+        print("Archivo http.txt renombrado a http_proxies.txt.")
+
+        # Hacer commit para reflejar los cambios de eliminar y renombrar
+        subprocess.run(["git", "add", "."])
+        subprocess.run(["git", "commit", "-m", "Update proxyList - Clean up"])
+
+        print("Commit, push y limpieza completados.")
+    except Exception as e:
+        print(f"Error al realizar el commit, push y borrar archivos: {e}")
 def obtener_proxy_gimmeproxy():
     # Función para obtener un proxy de gimmeproxy.com
     url = "https://gimmeproxy.com/api/getProxy"
@@ -163,6 +187,8 @@ def eliminar_duplicados(archivo_entrada, archivo_salida):
 
 def main():
     realizar_solicitudes_concurrentes()
+    # Después de realizar las solicitudes y guardar en http.txt
+    commit_push_y_borrar_archivos()
 
 if __name__ == "__main__":
     main()

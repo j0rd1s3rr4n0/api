@@ -9,8 +9,8 @@ from threading import Lock
 lock = Lock()
 def commit_push_y_borrar_archivos():
     try:
-        # Hacer commit de todos los cambios
-        subprocess.run(["git", "add", "."])
+        # Hacer commit de http.txt
+        subprocess.run(["git", "add", "http.txt"])
         subprocess.run(["git", "commit", "-m", "Update proxyList"])
 
         # Hacer push
@@ -24,11 +24,7 @@ def commit_push_y_borrar_archivos():
         os.rename("http.txt", "http_proxies.txt")
         print("Archivo http.txt renombrado a http_proxies.txt.")
 
-        # Hacer commit para reflejar los cambios de eliminar y renombrar
-        subprocess.run(["git", "add", "."])
-        subprocess.run(["git", "commit", "-m", "Update proxyList - Clean up"])
-
-        print("Commit, push y limpieza completados.")
+        print("Commit y push completados.")
     except Exception as e:
         print(f"Error al realizar el commit, push y borrar archivos: {e}")
 def obtener_proxy_gimmeproxy():

@@ -7,14 +7,14 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from requests.adapters import HTTPAdapter
 from threading import Lock
 from requests.packages.urllib3.util.retry import Retry
-
+import time
 lock = Lock()
 
 def commit_push_y_borrar_archivos():
     try:
         # Hacer commit de http.txt
         subprocess.run(["git", "add", "http.txt"])
-        subprocess.run(["git", "commit", "-m", "Update proxyList"])
+        subprocess.run(["git", "commit", "-m", f"Update proxyList {str(time.asctime())}"])
         # Hacer push
         subprocess.run(["git", "push"])
         # Eliminar http_proxies.txt
@@ -89,7 +89,7 @@ def guardar_en_archivo(ip_port):
         with open(archivo_path, "a") as archivo:
             archivo.write(ip_port + "\n")
 
-def realizar_solicitudes_concurrentes(max_intentos=10):
+def realizar_solicitudes_concurrentes(max_intentos=2):
     intentos = 0
     protocolo_http_encontrado = False
 

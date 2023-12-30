@@ -16,7 +16,7 @@
       "type": "service_closure"
     },
     "SoftwareUpdate": {
-      "update_dates": "ZZ/ZZ/2024",
+      "update_dates": "ZZ/ZZ/2030",
       "message": "Software update available. Please check for the latest version.",
       "type": "update"
     }

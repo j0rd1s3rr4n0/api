@@ -1,0 +1,63 @@
+{
+    "license": {
+        "key": "your_license_key",
+        "expiration_date": "yyyy-mm-dd",
+        "max_users": 10,
+        "features": ["feature1", "feature2", "feature3"]
+    },
+    "validation": {
+        "api_endpoint": "https://your-license-validation-api.com/validate",
+        "timeout": 5000,
+        "retry_attempts": 3
+    },
+    "user_info": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "organization": "Example Inc."
+    },
+    "hash_info": {
+        "hash_1": "hash_value_1_here",
+        "hash_2": "hash_value_2_here",
+        "hash_3": "hash_value_3_here",
+        "hash_4": "hash_value_4_here",
+        "hash_5": "hash_value_5_here"
+    },
+    "certificate_info": {
+        "issuer": "Certificate Issuer",
+        "issued_to": "Issued To",
+        "issue_date": "yyyy-mm-dd",
+        "expiration_date": "yyyy-mm-dd",
+        "certificate_number": "123456789",
+        "additional_fields": {
+            "field_1": "value_1",
+            "field_2": "value_2",
+            "field_3": "value_3"
+        }
+    },
+    "user_types": {
+        "premium_user": {
+            "name": "Premium User",
+            "description": "Access to all premium features"
+        },
+        "standard_user": {
+            "name": "Standard User",
+            "description": "Basic access with limited features"
+        },
+        "admin_user": {
+            "name": "Admin User",
+            "description": "Administrative privileges"
+        }
+    },
+    "subtools": [
+        {
+            "name": "Subtool 1",
+            "description": "Description of subtool 1",
+            "features": ["feature_A", "feature_B"]
+        },
+        {
+            "name": "Subtool 2",
+            "description": "Description of subtool 2",
+            "features": ["feature_C", "feature_D"]
+        }
+    ]
+}

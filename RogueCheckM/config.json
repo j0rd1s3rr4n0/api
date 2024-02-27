@@ -1,0 +1,101 @@
+{
+  "advices": {
+    "RoqueCheckM": {
+      "maintenance_dates": "XX/XX/2024",
+      "message": "Maintenance advisory for RoqueCheckM on XX/XX/2024",
+      "type": "maintenance"
+    },
+    "096PTK": {
+      "maintenance_dates": "XX/XX/2024",
+      "message": "Maintenance advisory for 096PTK on XX/XX/2024",
+      "type": "maintenance"
+    },
+    "GeneralClosure": {
+      "closure_dates": "YY/YY/2024",
+      "message": "Temporary service closure due to unforeseen circumstances.",
+      "type": "service_closure"
+    },
+    "SoftwareUpdate": {
+      "update_dates": "ZZ/ZZ/2030",
+      "message": "Software update available. Please check for the latest version.",
+      "type": "update"
+    }
+  },
+  "version": {
+    "RoqueCheckM": "1.0",
+    "096PTK": "1.2",
+    "urls": {
+      "user_api": "https://api.generadordni.es/person/username?results=100",
+      "pass_api": "https://api.generadordni.es/person/password?results=100",
+      "domain_default": "https://localhost/",
+      "google_check": "https://www.google.com"
+    },
+    "proxy_sources": [
+      "https://j0rd1s3rr4n0.github.io/api/proxy/http.txt",
+      "https://www.proxy-list.download/api/v1/get?type=http",
+      "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all",
+      "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+      "https://www.proxy-list.download/api/v1/get?type=https",
+      "https://api.proxyscrape.com/v2/?request=getproxies&protocol=https&timeout=10000&country=all",
+      "https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt",
+      "https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
+      "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+      "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
+      "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all",
+      "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
+      "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_anonymous/http.txt",
+      "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_geolocation/http.txt",
+      "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_geolocation_anonymous/http.txt"
+    ],
+    "target_domains": {
+      "Spotify": "spotify.com",
+      "Netflix": "netflix.com",
+      "Facebook": "facebook.com",
+      "Instagram": "instagram.com",
+      "Twitter": "twitter.com",
+      "LinkedIn": "linkedin.com"
+    },
+    "database": {
+      "DATABASE_PATH": "data.db",
+      "DATABASE_VERSION": 1,
+      "tables": {
+        "proxys": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "ip TEXT",
+          "port INT"
+        ],
+        "Usernames": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "username TEXT"
+        ],
+        "Passwords": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "password TEXT"
+        ],
+        "Emails": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "email TEXT"
+        ],
+        "Pastebins": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "url TEXT",
+          "code TEXT"
+        ],
+        "Combos": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "username TEXT",
+          "password TEXT"
+        ],
+        "Config": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "config_data TEXT"
+        ],
+        "TargetSites": [
+          "id INTEGER PRIMARY KEY AUTOINCREMENT",
+          "site_name TEXT",
+          "domain_url TEXT"
+        ]
+      }
+    }
+  }
+}

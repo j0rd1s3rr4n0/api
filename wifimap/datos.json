@@ -8,7 +8,7 @@
       "enlace": "https://www.ejemplo.com",
       "radio_metros": 500,
       "color": "#ff0000",
-      "icono": "https://example.com/icono1.png"
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
     },
     {
       "latitud": 51.51,
@@ -18,7 +18,7 @@
       "enlace": "https://www.ejemplo.com",
       "radio_metros": 800,
       "color": "#00ff00",
-      "icono": "https://example.com/icono2.png"
+      "icono": "https://purepng.com/public/uploads/large/purepng.com-wifi-icon-bluewifi-iconwifiiconwireless-connection-1701528436179cpqjf.png"
     },
     {
       "latitud": 51.52,
@@ -28,7 +28,7 @@
       "enlace": "https://www.ejemplo.com",
       "radio_metros": 600,
       "color": "#0000ff",
-      "icono": "https://example.com/icono3.png"
+      "icono": "https://cdn-icons-png.freepik.com/512/2859/2859723.png"
     }
   ]
 }

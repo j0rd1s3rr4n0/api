@@ -7,7 +7,8 @@
       "descripcion": "Descripción del punto 1",
       "enlace": "https://www.ejemplo.com",
       "radio_metros": 500,
-      "color": "#ff0000"
+      "color": "#ff0000",
+      "icono": "https://example.com/icono1.png"
     },
     {
       "latitud": 51.51,
@@ -16,7 +17,8 @@
       "descripcion": "Descripción del punto 2",
       "enlace": "https://www.ejemplo.com",
       "radio_metros": 800,
-      "color": "#00ff00"
+      "color": "#00ff00",
+      "icono": "https://example.com/icono2.png"
     },
     {
       "latitud": 51.52,
@@ -25,7 +27,8 @@
       "descripcion": "Descripción del punto 3",
       "enlace": "https://www.ejemplo.com",
       "radio_metros": 600,
-      "color": "#0000ff"
+      "color": "#0000ff",
+      "icono": "https://example.com/icono3.png"
     }
   ]
 }

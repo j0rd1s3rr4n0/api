@@ -6,7 +6,7 @@
       "titulo": "Punto 1",
       "descripcion": "Descripción del punto 1",
       "enlace": "https://www.ejemplo.com",
-      "radio_metros": 500,
+      "radio_metros": 10,
       "color": "#ff0000",
       "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
     },
@@ -16,7 +16,7 @@
       "titulo": "Punto 2",
       "descripcion": "Descripción del punto 2",
       "enlace": "https://www.ejemplo.com",
-      "radio_metros": 800,
+      "radio_metros": 20,
       "color": "#00ff00",
       "icono": "https://purepng.com/public/uploads/large/purepng.com-wifi-icon-bluewifi-iconwifiiconwireless-connection-1701528436179cpqjf.png"
     },
@@ -26,7 +26,17 @@
       "titulo": "Punto 3",
       "descripcion": "Descripción del punto 3",
       "enlace": "https://www.ejemplo.com",
-      "radio_metros": 600,
+      "radio_metros": 50,
+      "color": "#0000ff",
+      "icono": "https://cdn-icons-png.freepik.com/512/2859/2859723.png"
+    },
+    {
+      "latitud": 41.9638451931788,
+      "longitud": 2.8293014423067193,
+      "titulo": "Universitat de Girona",
+      "descripcion": "Campus Montilivi\n<b>User:</b> admin\n<b>Password:</b> admin",
+      "enlace": "https://www.udg.edu/ca",
+      "radio_metros": 50,
       "color": "#0000ff",
       "icono": "https://cdn-icons-png.freepik.com/512/2859/2859723.png"
     }

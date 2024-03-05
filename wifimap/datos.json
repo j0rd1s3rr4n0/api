@@ -1,44 +1,1046 @@
 {
   "puntos_con_areas": [
     {
-      "latitud": 41.616605,
-      "longitud": 2.651524,
-      "titulo": "Punto 1",
-      "descripcion": "Descripción del punto 1",
-      "enlace": "https://www.ejemplo.com",
-      "radio_metros": 10,
-      "color": "#ff0000",
+      "latitud": 41.44488259177047,
+      "longitud": 2.4895406159492497,
+      "titulo": "CodeRealm_632",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeNexus_679_H4ck3r\n<b>Password:</b> i8ZgdpbEHSz0",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 55,
+      "color": "#fbc3b8",
       "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
     },
     {
-      "latitud": 51.51,
-      "longitud": -0.1,
-      "titulo": "Punto 2",
-      "descripcion": "Descripción del punto 2",
-      "enlace": "https://www.ejemplo.com",
+      "latitud": 41.49156177256625,
+      "longitud": 2.4685508129192275,
+      "titulo": "MainframeBreaker_187",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> TechNode_630_H4ck3r\n<b>Password:</b> Kgx1EnulIrEe",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 9,
+      "color": "#81cbc9",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.51460652698897,
+      "longitud": 2.3049320207801274,
+      "titulo": "CodeDimension_8",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberDimension_402_H4ck3r\n<b>Password:</b> fVProxfVh4AF",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 41,
+      "color": "#e340",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.61914817743511,
+      "longitud": 2.1066397292211816,
+      "titulo": "MatrixNode_911",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixHack_299_H4ck3r\n<b>Password:</b> z1JT2JvoG9Ic",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 10,
+      "color": "#f55242",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.44686346141005,
+      "longitud": 2.1704812045365998,
+      "titulo": "MatrixMaster_868",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> BytePortal_649_H4ck3r\n<b>Password:</b> 5p5g200RKb85",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 86,
+      "color": "#af89e4",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.59395791224504,
+      "longitud": 2.1983817824997876,
+      "titulo": "CyberPortal_529",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> TechMaster_620_H4ck3r\n<b>Password:</b> SbfiiiPMyyML",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 51,
+      "color": "#29c661",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.579894045428325,
+      "longitud": 2.337297966704676,
+      "titulo": "CodeMaster_431",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeDimension_495_H4ck3r\n<b>Password:</b> xbGYEBFx5rsv",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 3,
+      "color": "#6517fe",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.36078628609094,
+      "longitud": 2.2886337872851508,
+      "titulo": "ByteNexus_416",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataNode_518_H4ck3r\n<b>Password:</b> z2uAPTVNNKZI",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 21,
+      "color": "#52f874",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.38542377245366,
+      "longitud": 2.5179540812868564,
+      "titulo": "TechNexus_19",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeRealm_30_H4ck3r\n<b>Password:</b> S7024ZywkNqY",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 27,
+      "color": "#55458",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.63347000068028,
+      "longitud": 2.5787719153888817,
+      "titulo": "CodeBreaker_117",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteNexus_958_H4ck3r\n<b>Password:</b> JnT0cdGjnACt",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 17,
+      "color": "#3b5881",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.59003713852852,
+      "longitud": 2.2971064550492812,
+      "titulo": "DataNode_122",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> VirtualNode_114_H4ck3r\n<b>Password:</b> pR1zBbdJNqc6",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 92,
+      "color": "#dc87fe",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.558796794303056,
+      "longitud": 2.2871515582139628,
+      "titulo": "HackPortal_32",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixHack_460_H4ck3r\n<b>Password:</b> HhiAIgedbCbr",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 24,
+      "color": "#d874b1",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.503455199557614,
+      "longitud": 2.5690591338845543,
+      "titulo": "MainframeRealm_285",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetRealm_905_H4ck3r\n<b>Password:</b> uupQWLzIpTlx",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
       "radio_metros": 20,
-      "color": "#00ff00",
-      "icono": "https://purepng.com/public/uploads/large/purepng.com-wifi-icon-bluewifi-iconwifiiconwireless-connection-1701528436179cpqjf.png"
+      "color": "#97a2e4",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
     },
     {
-      "latitud": 51.52,
-      "longitud": -0.08,
-      "titulo": "Punto 3",
-      "descripcion": "Descripción del punto 3",
-      "enlace": "https://www.ejemplo.com",
-      "radio_metros": 50,
-      "color": "#0000ff",
-      "icono": "https://cdn-icons-png.freepik.com/512/2859/2859723.png"
+      "latitud": 41.476181905396,
+      "longitud": 2.4578129571373077,
+      "titulo": "ByteNode_658",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataNode_496_H4ck3r\n<b>Password:</b> AA0Ej2qXnEb8",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 98,
+      "color": "#201122",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
     },
     {
-      "latitud": 41.9638451931788,
-      "longitud": 2.8293014423067193,
-      "titulo": "Universitat de Girona",
-      "descripcion": "Campus Montilivi\n<b>User:</b> admin\n<b>Password:</b> admin",
-      "enlace": "https://www.udg.edu/ca",
+      "latitud": 41.5770542537461,
+      "longitud": 2.3425542647655777,
+      "titulo": "MatrixRealm_454",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetNode_369_H4ck3r\n<b>Password:</b> XdnhOiBPDsza",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 63,
+      "color": "#69ce7a",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.54744682470812,
+      "longitud": 2.308685391127905,
+      "titulo": "HackNode_325",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteMaster_308_H4ck3r\n<b>Password:</b> 6YcQUb7IX3OI",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 36,
+      "color": "#1dd224",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.5349102684458,
+      "longitud": 2.320794398815897,
+      "titulo": "CyberRealm_523",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeRunner_440_H4ck3r\n<b>Password:</b> KqBtvIPN09im",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 10,
+      "color": "#903bbd",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.57715843746251,
+      "longitud": 2.537803507844232,
+      "titulo": "VirtualNode_306",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackNode_660_H4ck3r\n<b>Password:</b> OqlJ3Yziwo9C",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 45,
+      "color": "#756e48",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.616372641088624,
+      "longitud": 2.1017183798325343,
+      "titulo": "MainframeMaster_463",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeRealm_863_H4ck3r\n<b>Password:</b> zpasA8UVFzgp",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 74,
+      "color": "#34f3c8",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.445835323451284,
+      "longitud": 2.2609683447724436,
+      "titulo": "CyberRunner_200",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeHack_728_H4ck3r\n<b>Password:</b> U34R3q2W5Q5c",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 83,
+      "color": "#f631cb",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.383565028471686,
+      "longitud": 2.486907382905322,
+      "titulo": "HackNode_427",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteDimension_757_H4ck3r\n<b>Password:</b> xktiQLaA6cL5",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 26,
+      "color": "#998c67",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.595623005885784,
+      "longitud": 2.261945600754588,
+      "titulo": "NetHack_960",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeBreaker_31_H4ck3r\n<b>Password:</b> 9oVuNj8o9rJy",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 10,
+      "color": "#599328",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.54255402911955,
+      "longitud": 2.180220983636162,
+      "titulo": "ByteRealm_378",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackNode_951_H4ck3r\n<b>Password:</b> tRrgXSdNoySN",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 52,
+      "color": "#bf9e05",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.511762191469685,
+      "longitud": 2.2127457487538282,
+      "titulo": "TechBreaker_44",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberHack_908_H4ck3r\n<b>Password:</b> 8zZvUeRGxokd",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 33,
+      "color": "#c48efd",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.599901029905155,
+      "longitud": 2.362561142835351,
+      "titulo": "HackNexus_613",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeRunner_44_H4ck3r\n<b>Password:</b> 5MRmlJe8l6FO",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 39,
+      "color": "#966914",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.63362865555151,
+      "longitud": 2.116351723954389,
+      "titulo": "TechNode_514",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixRealm_674_H4ck3r\n<b>Password:</b> RbfeO8jGfwVK",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 48,
+      "color": "#7fc861",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.47389800916034,
+      "longitud": 2.3532474853936027,
+      "titulo": "MatrixDimension_480",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixMaster_795_H4ck3r\n<b>Password:</b> uJyJlwNbntL0",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 76,
+      "color": "#dfd1e4",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.49226942301024,
+      "longitud": 2.542758754139866,
+      "titulo": "MainframeNexus_676",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetNode_81_H4ck3r\n<b>Password:</b> N9rWnIWRANkF",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 54,
+      "color": "#39e197",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.55403399883655,
+      "longitud": 2.2137433402911935,
+      "titulo": "MatrixRealm_656",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberBreaker_496_H4ck3r\n<b>Password:</b> EYrmF34miW47",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 49,
+      "color": "#895335",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.39611993398631,
+      "longitud": 2.3652100676230217,
+      "titulo": "HackRunner_190",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteNexus_847_H4ck3r\n<b>Password:</b> zK26y01mvkiA",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 86,
+      "color": "#787990",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.36915578938017,
+      "longitud": 2.4668853937894792,
+      "titulo": "CyberDimension_548",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetHack_598_H4ck3r\n<b>Password:</b> 9H4LHCEvXlrx",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 11,
+      "color": "#948437",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.642559318531234,
+      "longitud": 2.3886640928521214,
+      "titulo": "CyberRealm_320",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataHack_827_H4ck3r\n<b>Password:</b> QexJIZj1SoL7",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 67,
+      "color": "#c55b94",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.39531078163035,
+      "longitud": 2.153466799063499,
+      "titulo": "CyberRunner_263",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberNode_356_H4ck3r\n<b>Password:</b> jzlgJgusegKn",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 13,
+      "color": "#bed081",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.41609315830943,
+      "longitud": 2.4136874787348845,
+      "titulo": "NetNode_174",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeNode_417_H4ck3r\n<b>Password:</b> 9vJZByoHKOG9",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 80,
+      "color": "#1449cc",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.54985688176385,
+      "longitud": 2.484037559634098,
+      "titulo": "TechBreaker_661",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeMaster_528_H4ck3r\n<b>Password:</b> ZxqVTAiPNjbd",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 18,
+      "color": "#a5f169",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.44376501485886,
+      "longitud": 2.5147467795333647,
+      "titulo": "MainframeNode_87",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetDimension_491_H4ck3r\n<b>Password:</b> p1gqF4Y4G8tO",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 35,
+      "color": "#44e642",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.507165631627934,
+      "longitud": 2.3721778965032345,
+      "titulo": "HackNode_738",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixNexus_934_H4ck3r\n<b>Password:</b> MK7PHdTptgFi",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 34,
+      "color": "#ccd735",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.43491075586972,
+      "longitud": 2.4071527402719735,
+      "titulo": "MainframeDimension_113",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeNode_281_H4ck3r\n<b>Password:</b> 4epijlBBAX5A",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 90,
+      "color": "#48027b",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.544203449612375,
+      "longitud": 2.259331228496901,
+      "titulo": "HackRealm_59",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackHack_218_H4ck3r\n<b>Password:</b> 5191eoIe5Krc",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 73,
+      "color": "#758870",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.46592499054512,
+      "longitud": 2.5273799666130943,
+      "titulo": "CyberMaster_164",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberNode_983_H4ck3r\n<b>Password:</b> 1S3LzWpY5whe",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 11,
+      "color": "#457b41",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.51501886207804,
+      "longitud": 2.279264854173391,
+      "titulo": "NetBreaker_838",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteRunner_675_H4ck3r\n<b>Password:</b> bZma0EmF5CgT",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 96,
+      "color": "#7358ed",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.62187631734225,
+      "longitud": 2.25521648642395,
+      "titulo": "VirtualRunner_121",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> BytePortal_414_H4ck3r\n<b>Password:</b> VhHyVU9RvMdj",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 36,
+      "color": "#34bc13",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.44861954069623,
+      "longitud": 2.4229475794387807,
+      "titulo": "NetRunner_955",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataRunner_788_H4ck3r\n<b>Password:</b> FQ4ZoUI80ybL",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 28,
+      "color": "#3db3a4",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.63704616623432,
+      "longitud": 2.570387937172226,
+      "titulo": "HackHack_413",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodePortal_560_H4ck3r\n<b>Password:</b> NNs6hhheyiyX",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 87,
+      "color": "#382769",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.39606185287758,
+      "longitud": 2.5934049328008477,
+      "titulo": "NetMaster_400",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> VirtualPortal_271_H4ck3r\n<b>Password:</b> PIACgC6rK85i",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 8,
+      "color": "#797a17",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.63722094128304,
+      "longitud": 2.4657592536257376,
+      "titulo": "TechNexus_370",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataRunner_620_H4ck3r\n<b>Password:</b> k3UNtyeFiIDa",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 89,
+      "color": "#54e9e5",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.38289513573656,
+      "longitud": 2.2524647227052257,
+      "titulo": "CodePortal_530",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> VirtualBreaker_790_H4ck3r\n<b>Password:</b> 2YdSlK9PWrtZ",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 89,
+      "color": "#e90d2b",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.49245707220311,
+      "longitud": 2.2841183702061967,
+      "titulo": "MainframeHack_489",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> TechDimension_151_H4ck3r\n<b>Password:</b> guJfAZB3D1Ul",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 32,
+      "color": "#feb423",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.5110720928377,
+      "longitud": 2.4417941991627528,
+      "titulo": "NetNode_593",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberBreaker_518_H4ck3r\n<b>Password:</b> 1zwWCEyO38sp",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 54,
+      "color": "#cd50a",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.351461536797025,
+      "longitud": 2.3711857835966628,
+      "titulo": "TechPortal_509",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetDimension_630_H4ck3r\n<b>Password:</b> Cb7CfnEPW0Ah",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 49,
+      "color": "#df2cff",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.546573198648396,
+      "longitud": 2.345271162145122,
+      "titulo": "MatrixNode_945",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeRealm_68_H4ck3r\n<b>Password:</b> C0OHtTOYeB7X",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 27,
+      "color": "#ea9784",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.456685076329265,
+      "longitud": 2.50491333627749,
+      "titulo": "ByteBreaker_861",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetDimension_235_H4ck3r\n<b>Password:</b> aOSvYlbHsTHL",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 26,
+      "color": "#137706",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.53103347276441,
+      "longitud": 2.1725250649690615,
+      "titulo": "NetMaster_927",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackNode_399_H4ck3r\n<b>Password:</b> Mst1VIU5FhfQ",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 71,
+      "color": "#ec33a1",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.51020776567736,
+      "longitud": 2.449062619124908,
+      "titulo": "MatrixNode_551",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> VirtualPortal_838_H4ck3r\n<b>Password:</b> 9JTnUrryHNRK",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 22,
+      "color": "#72f286",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.4851863822329,
+      "longitud": 2.465779939324055,
+      "titulo": "MatrixNode_60",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeNode_169_H4ck3r\n<b>Password:</b> i9OpRMnHC8Sa",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 5,
+      "color": "#935197",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.5710400632494,
+      "longitud": 2.159703954241659,
+      "titulo": "MainframeDimension_692",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteHack_892_H4ck3r\n<b>Password:</b> funNKjGv1Hne",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 71,
+      "color": "#aa3140",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.62010123628802,
+      "longitud": 2.182222549743361,
+      "titulo": "NetBreaker_905",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeNode_381_H4ck3r\n<b>Password:</b> eYGi4xW6vbYP",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 78,
+      "color": "#8edb3c",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.5182099381894,
+      "longitud": 2.5626740709068283,
+      "titulo": "NetNode_303",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetRealm_114_H4ck3r\n<b>Password:</b> ZOaj9rLkrzg0",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 68,
+      "color": "#aeec91",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.373697784793215,
+      "longitud": 2.1190162244678734,
+      "titulo": "HackMaster_865",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteRunner_138_H4ck3r\n<b>Password:</b> 6hza0Gj44JPr",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 20,
+      "color": "#2254bf",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.404353293622464,
+      "longitud": 2.550299093962976,
+      "titulo": "HackPortal_823",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataNode_182_H4ck3r\n<b>Password:</b> IDqnFqUwcwA5",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 97,
+      "color": "#f733ee",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.521295723050955,
+      "longitud": 2.321589704716481,
+      "titulo": "CyberHack_482",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetRunner_491_H4ck3r\n<b>Password:</b> pWumiYD9XdLv",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 74,
+      "color": "#533fbc",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.41174369541306,
+      "longitud": 2.1392019502458366,
+      "titulo": "NetDimension_656",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteNexus_151_H4ck3r\n<b>Password:</b> 9isBKFjk2Vhv",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 40,
+      "color": "#abeb35",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.410075544864746,
+      "longitud": 2.1359979889858116,
+      "titulo": "TechBreaker_950",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeRealm_471_H4ck3r\n<b>Password:</b> E3NvEiUJE4hM",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 92,
+      "color": "#37c4cb",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.634616107484305,
+      "longitud": 2.302048504961183,
+      "titulo": "HackDimension_760",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> TechMaster_561_H4ck3r\n<b>Password:</b> 8VmkYxJ69Pdd",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 46,
+      "color": "#c0fa42",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.37368189876328,
+      "longitud": 2.2617208855286286,
+      "titulo": "DataNode_719",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeRealm_350_H4ck3r\n<b>Password:</b> fOZoKTYhGyRB",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 11,
+      "color": "#7eac92",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.354853631635905,
+      "longitud": 2.2374126550332094,
+      "titulo": "MatrixDimension_128",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberHack_540_H4ck3r\n<b>Password:</b> duJwQ5kuGW0E",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 37,
+      "color": "#385986",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.37886312567943,
+      "longitud": 2.101066369840683,
+      "titulo": "CyberDimension_879",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeBreaker_267_H4ck3r\n<b>Password:</b> FR5NslkqkGwV",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 12,
+      "color": "#1d0b52",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.39292293149447,
+      "longitud": 2.3714482010006708,
+      "titulo": "MatrixNode_520",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetBreaker_622_H4ck3r\n<b>Password:</b> JrMTmLbSUnZe",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
       "radio_metros": 50,
-      "color": "#0000ff",
-      "icono": "https://cdn-icons-png.freepik.com/512/2859/2859723.png"
-    }
+      "color": "#b501a0",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.63726184066152,
+      "longitud": 2.5079173912645683,
+      "titulo": "TechMaster_822",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeNexus_765_H4ck3r\n<b>Password:</b> znZF4HnNWv5i",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 89,
+      "color": "#20b986",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.53884422956629,
+      "longitud": 2.410360280278038,
+      "titulo": "CodeRunner_771",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackNode_251_H4ck3r\n<b>Password:</b> YK0EH6sbFtCz",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 50,
+      "color": "#b395e3",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.57947739560883,
+      "longitud": 2.115352718181973,
+      "titulo": "MatrixNode_378",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetHack_482_H4ck3r\n<b>Password:</b> oILnzGVGwNsV",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 16,
+      "color": "#6d021b",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.52617863993741,
+      "longitud": 2.2283527451094303,
+      "titulo": "HackNexus_993",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeHack_505_H4ck3r\n<b>Password:</b> vjFJhEkZGxmC",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 78,
+      "color": "#c07e41",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.625441262367985,
+      "longitud": 2.100912942118563,
+      "titulo": "CyberNexus_658",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackDimension_471_H4ck3r\n<b>Password:</b> zIQGgot4FGzt",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 51,
+      "color": "#b4bb7e",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.634617237324456,
+      "longitud": 2.242478144176782,
+      "titulo": "TechRealm_679",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetHack_775_H4ck3r\n<b>Password:</b> Y9u5KR8xzIja",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 49,
+      "color": "#a9fff2",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.442911026538944,
+      "longitud": 2.480369214458255,
+      "titulo": "CodeRealm_222",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> TechHack_392_H4ck3r\n<b>Password:</b> lCfk4rRO4rGu",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 23,
+      "color": "#610c1b",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.51488807833721,
+      "longitud": 2.283101541630957,
+      "titulo": "VirtualHack_618",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteDimension_125_H4ck3r\n<b>Password:</b> YYvbldFlNkle",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 3,
+      "color": "#937791",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.54962016045191,
+      "longitud": 2.2622466626326867,
+      "titulo": "NetRealm_307",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackMaster_149_H4ck3r\n<b>Password:</b> gccee9qorB8h",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 52,
+      "color": "#60d0ee",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.51059052093802,
+      "longitud": 2.290264960543744,
+      "titulo": "DataDimension_619",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackNode_87_H4ck3r\n<b>Password:</b> jJhUFN9r3wn0",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 50,
+      "color": "#5429bb",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.35129469048746,
+      "longitud": 2.406794346129523,
+      "titulo": "NetNode_173",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteRealm_279_H4ck3r\n<b>Password:</b> mYU5yMn5Wi3K",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 85,
+      "color": "#266259",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.51902882210746,
+      "longitud": 2.4262677816315037,
+      "titulo": "CyberRunner_406",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeRealm_347_H4ck3r\n<b>Password:</b> gXMwtxHe6P5H",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 93,
+      "color": "#e5650b",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.509392648965175,
+      "longitud": 2.5905669151718596,
+      "titulo": "HackBreaker_516",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberRunner_698_H4ck3r\n<b>Password:</b> mhDtsC7dj9xF",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 34,
+      "color": "#929e3d",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.540559163027694,
+      "longitud": 2.236526970568807,
+      "titulo": "CyberDimension_323",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataBreaker_117_H4ck3r\n<b>Password:</b> WwyvMSG5xYgp",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 98,
+      "color": "#a2d1b9",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.400617662957494,
+      "longitud": 2.230208080563518,
+      "titulo": "VirtualBreaker_448",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> VirtualPortal_427_H4ck3r\n<b>Password:</b> 7we0JUIOjA6C",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 6,
+      "color": "#6017bc",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.631054681980544,
+      "longitud": 2.3298584602161223,
+      "titulo": "MatrixNode_694",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixHack_331_H4ck3r\n<b>Password:</b> feMCGMunPDfc",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 64,
+      "color": "#8ea40c",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.63027960388273,
+      "longitud": 2.56656947277253,
+      "titulo": "HackBreaker_546",
+      "descripcion": "Accede al punto de conexión seguro\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetBreaker_817_H4ck3r\n<b>Password:</b> MXytdauh65lP",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 24,
+      "color": "#15e8e8",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.45449523204478,
+      "longitud": 2.186598631133673,
+      "titulo": "CodeNode_208",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> HackMaster_513_H4ck3r\n<b>Password:</b> 3pINppCzjJ1r",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 6,
+      "color": "#b0e3a9",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.43683912641852,
+      "longitud": 2.598565328637206,
+      "titulo": "TechNexus_473",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> NetRealm_318_H4ck3r\n<b>Password:</b> oElkUQiJtngf",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 88,
+      "color": "#d536ae",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.47631267478275,
+      "longitud": 2.2706064235601104,
+      "titulo": "MatrixNode_111",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixBreaker_966_H4ck3r\n<b>Password:</b> cKCE6uajrkH7",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 70,
+      "color": "#f17290",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.383339442229875,
+      "longitud": 2.2105554033777928,
+      "titulo": "VirtualNode_959",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteNode_337_H4ck3r\n<b>Password:</b> zRNBRU7O653U",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 23,
+      "color": "#89c6ed",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.549712280286,
+      "longitud": 2.55644640260339,
+      "titulo": "TechRealm_767",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> ByteNode_910_H4ck3r\n<b>Password:</b> 1GpNkokM5PPN",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 6,
+      "color": "#bc6912",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.466076415086086,
+      "longitud": 2.1450749858071356,
+      "titulo": "MatrixNode_579",
+      "descripcion": "Infiltra el sistema digital\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixMaster_450_H4ck3r\n<b>Password:</b> DB1XxgbuwxNn",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 79,
+      "color": "#1878c8",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.53298549404917,
+      "longitud": 2.145653732005693,
+      "titulo": "HackRunner_423",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CodeHack_51_H4ck3r\n<b>Password:</b> oE1yL8GRqb3f",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 2,
+      "color": "#4f76db",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.36484499882578,
+      "longitud": 2.1964918440738503,
+      "titulo": "MainframeNode_431",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeNode_991_H4ck3r\n<b>Password:</b> QN2VAVtxyQBg",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 76,
+      "color": "#523fdf",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.52474219870243,
+      "longitud": 2.237189600386645,
+      "titulo": "CodePortal_601",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MatrixPortal_868_H4ck3r\n<b>Password:</b> DHNrcjMh1cce",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 62,
+      "color": "#61b588",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.3503170009972,
+      "longitud": 2.19609804805173,
+      "titulo": "MatrixNode_652",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataNode_223_H4ck3r\n<b>Password:</b> EMton9RYaebS",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 65,
+      "color": "#ea7407",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.471692436810066,
+      "longitud": 2.293481033416981,
+      "titulo": "CyberPortal_192",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> DataMaster_675_H4ck3r\n<b>Password:</b> opJzfnVnGRO0",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 28,
+      "color": "#72ac09",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.50269500186535,
+      "longitud": 2.2965340234285687,
+      "titulo": "HackNexus_596",
+      "descripcion": "Descubre los secretos ocultos\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> TechBreaker_40_H4ck3r\n<b>Password:</b> YhWdBCOdBqJc",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 60,
+      "color": "#4548cd",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.37383903658198,
+      "longitud": 2.3692876515747194,
+      "titulo": "CodeRealm_289",
+      "descripcion": "Explora los límites de la red\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> TechHack_389_H4ck3r\n<b>Password:</b> v33oTV6RptJp",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 51,
+      "color": "#f101e8",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.41694726776447,
+      "longitud": 2.490439303480011,
+      "titulo": "MatrixNexus_199",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> MainframeNexus_21_H4ck3r\n<b>Password:</b> BJPXNTDJihbI",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 58,
+      "color": "#b0aba5",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+      "latitud": 41.52826489459267,
+      "longitud": 2.5736301285215086,
+      "titulo": "MainframeNode_237",
+      "descripcion": "Sumérgete en la red oculta\nUna travesía en el ciberespacio te aguarda\n\n<b>SSID:</b> CyberDimension_975_H4ck3r\n<b>Password:</b> tOSGW64de0Ax",
+      "enlace": "https://j0rd1s3rr4n0.github.io#wifimap",
+      "radio_metros": 27,
+      "color": "#c15151",
+      "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+    },
+    {
+        "latitud": 41.616605,
+        "longitud": 2.651524,
+        "titulo": "Punto 1",
+        "descripcion": "Descripción del punto 1",
+        "enlace": "https://www.ejemplo.com",
+        "radio_metros": 10,
+        "color": "#ff0000",
+        "icono": "https://cdn4.iconfinder.com/data/icons/technology-9/128/Technology_WiFi-512.png"
+      },
+      {
+        "latitud": 51.51,
+        "longitud": -0.1,
+        "titulo": "Punto 2",
+        "descripcion": "Descripción del punto 2",
+        "enlace": "https://www.ejemplo.com",
+        "radio_metros": 20,
+        "color": "#00ff00",
+        "icono": "https://purepng.com/public/uploads/large/purepng.com-wifi-icon-bluewifi-iconwifiiconwireless-connection-1701528436179cpqjf.png"
+      },
+      {
+        "latitud": 51.52,
+        "longitud": -0.08,
+        "titulo": "Punto 3",
+        "descripcion": "Descripción del punto 3",
+        "enlace": "https://www.ejemplo.com",
+        "radio_metros": 50,
+        "color": "#0000ff",
+        "icono": "https://cdn-icons-png.freepik.com/512/2859/2859723.png"
+      },
+      {
+        "latitud": 41.9638451931788,
+        "longitud": 2.8293014423067193,
+        "titulo": "Universitat de Girona",
+        "descripcion": "Campus Montilivi\n<b>User:</b> admin\n<b>Password:</b> admin",
+        "enlace": "https://www.udg.edu/ca",
+        "radio_metros": 50,
+        "color": "#0000ff",
+        "icono": "https://cdn-icons-png.freepik.com/512/2859/2859723.png"
+      }
   ]
 }
+
+  

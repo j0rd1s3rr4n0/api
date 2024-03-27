@@ -1,3 +1,36 @@
 {
-    "version":"1.2.8"
+    "version": "1.3.1",
+    "release_notes": [
+        {
+            "version": "1.3.1",
+            "date": "2024-03-27",
+            "changes": [
+                "Updated version to 1.3.1 in content_script.js and manifest.json",
+                "Added functions to print likes per second, detect end of likes, and detect matches",
+                "Fixed click function on element in content_script.js"
+            ]
+        },
+        {
+            "version": "1.2.8",
+            "date": "2023-09-02",
+            "changes": [
+                "Updated extension version to 1.2.8",
+                "Removed DOCTYPE tag from popup.html"
+            ]
+        },
+        {
+            "version": "1.2.7",
+            "date": "2023-08-11",
+            "changes": [
+                "Released version 1.2.7"
+            ]
+        },
+        {
+            "version": "1.0.0",
+            "date": "2023-08-25",
+            "changes": [
+                "Updated content_script.js"
+            ]
+        }
+    ]
 }

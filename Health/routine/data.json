@@ -1,0 +1,30 @@
+{
+  "horario": {
+    "Lunes a Jueves": "8:30 AM - 6:00 PM",
+    "Viernes": "8:00 AM - 4:00 PM"
+  },
+  "trayecto": "2 horas",
+  "comida": {
+    "desayuno": "Tortilla de huevos con vegetales",
+    "almuerzo": "Pollo a la parrilla con ensalada",
+    "merienda": "Batido de proteínas con frutas",
+    "cena": "Salmón al horno con quinoa",
+    "snacks": "Frutos secos (almendras, nueces)"
+  },
+  "ejercicio": {
+    "lunes": "Ejercicios de fuerza con pesas en casa",
+    "martes": "Calistenia o cardio de alta intensidad",
+    "miercoles": "Ejercicios de fuerza con pesas en casa",
+    "jueves": "Calistenia o cardio de alta intensidad",
+    "viernes": "Ejercicios de fuerza con pesas en casa",
+    "fin_de_semana": "Días libres para entrenamientos más largos o actividades al aire libre"
+  },
+  "consejos": [
+    "Dormir lo suficiente: 7-9 horas por noche",
+    "Reducir el estrés: Practicar técnicas de relajación como la meditación o el yoga",
+    "Leer y sacar tiempo para ti: Dedica al menos 30 minutos al día a actividades que te gusten",
+    "Alimentación balanceada: Incluye una variedad de alimentos en tu dieta para obtener todos los nutrientes necesarios",
+    "Ejercicio regular: Realiza ejercicio al menos 3-4 veces por semana",
+    "Limitar el alcohol y el tabaco: Consume alcohol con moderación y evita fumar"
+  ]
+}

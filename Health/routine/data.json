@@ -6,7 +6,7 @@
       "02:00": "",
       "03:00": "",
       "04:00": "",
-      "05:00": "",
+      "05:00": "despertar",
       "06:00": "",
       "07:00": "",
       "08:00": "Trabajo",
@@ -32,8 +32,8 @@
       "02:00": "",
       "03:00": "",
       "04:00": "",
-      "05:00": "",
-      "06:00": "Despertar",
+      "05:00": "despertar",
+      "06:00": "",
       "07:00": "",
       "08:00": "Trabajo",
       "09:00": "Trabajo",
@@ -59,7 +59,7 @@
       "03:00": "",
       "04:00": "",
       "05:00": "",
-      "06:00": "",
+      "06:00": "despertar",
       "07:00": "",
       "08:00": "Trabajo",
       "09:00": "Trabajo",
@@ -84,7 +84,7 @@
       "02:00": "",
       "03:00": "",
       "04:00": "",
-      "05:00": "",
+      "05:00": "despertar",
       "06:00": "",
       "07:00": "",
       "08:00": "Trabajo",
@@ -110,7 +110,7 @@
       "02:00": "",
       "03:00": "",
       "04:00": "",
-      "05:00": "",
+      "05:00": "despertar",
       "06:00": "",
       "07:00": "",
       "08:00": "Trabajo",
@@ -180,13 +180,13 @@
     }
   },
   "tipo_ejercicio": {
-      "lunes": ["Entrenamientos de fuerza con pesas en casa", "Boxeo"],
-      "martes": ["Ejercicios de calistenia en barras o en casa", "Correr"],
-      "miércoles": ["Entrenamientos de fuerza con pesas en casa", "Subir y bajar escaleras"],
-      "jueves": ["Cardio de alta intensidad (por ejemplo, HIIT)", "Andar en bicicleta"],
-      "viernes": ["Entrenamientos de fuerza con pesas en casa", "Saltar la cuerda"],
-      "sábado": ["Yoga o estiramientos", "Salir en bici"],
-      "domingo": ["Día de descanso activo (caminata ligera, ejercicios de flexibilidad)"]
+    "lunes": ["Entrenamientos de fuerza con pesas en casa", "Boxeo"],
+    "martes": ["Ejercicios de calistenia en barras o en casa", "Correr"],
+    "miércoles": ["Entrenamientos de fuerza con pesas en casa", "Subir y bajar escaleras"],
+    "jueves": ["Cardio de alta intensidad (por ejemplo, HIIT)", "Andar en bicicleta"],
+    "viernes": ["Entrenamientos de fuerza con pesas en casa", "Saltar la cuerda"],
+    "sábado": ["Yoga o estiramientos", "Salir en bici"],
+    "domingo": ["Día de descanso activo (caminata ligera, ejercicios de flexibilidad)"]
   },
   "actividades_trayecto_tren": [
     "Leer",
@@ -208,5 +208,10 @@
     "Ejercicio Regular: Realiza ejercicio al menos 3-4 veces por semana",
     "Limitar el Alcohol y el Tabaco: Consume alcohol con moderación y evita fumar"
   ],
-  "google_maps_url": "https://www.google.com/maps/d/embed?mid=1tTI2z-H-NX86_VvMcjzet4q0x_dAd48&ehbc=2E312F&noprof=1"
+  "google_maps_url": "https://www.google.com/maps/d/embed?mid=1tTI2z-H-NX86_VvMcjzet4q0x_dAd48&ehbc=2E312F&noprof=1",
+  "metas_diarias": {
+    "objetivos_corto_plazo": "Realizar todas las actividades planificadas para el día.",
+    "objetivos_medio_plazo": "Mantener una rutina de ejercicio constante durante al menos 3 meses.",
+    "objetivos_largo_plazo": "Lograr un estilo de vida saludable y activo a largo plazo."
+  }
 }

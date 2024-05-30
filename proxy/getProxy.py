@@ -255,6 +255,8 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                             except requests.exceptions.Timeout:
                                 if attempt == retry_attempts - 1:
                                     raise
+                            except Exception as e:
+                                pass
                         if geo_response and geo_response.status_code == 200:
                             geo = geo_response.json()
                         else:

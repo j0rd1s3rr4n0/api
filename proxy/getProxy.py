@@ -299,7 +299,16 @@ def eliminar_duplicados(archivo_entrada, archivo_salida):
 def main():
     global session
     session = create_session()
-    realizar_solicitudes_concurrentes()
+    retries = 0
+    max_retries = 3
+    while(retries < max_retries):
+        try:
+            realizar_solicitudes_concurrentes()
+            break
+        except Exception as e:
+            print(f"Error: {e}")
+            retries += 1
+            print(f"Retrying... {retries}/{max_retries}"
     commit_push_y_borrar_archivos()
 
 if __name__ == "__main__":

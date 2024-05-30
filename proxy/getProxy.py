@@ -12,7 +12,7 @@ import warnings
 from urllib3.exceptions import InsecureRequestWarning
 from colorama import Fore, Style
 lock = Lock()
-
+TIMEOUT = 5
 def commit_push_y_borrar_archivos():
     try:
         # Hacer commit de http.txt
@@ -249,7 +249,7 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                         retry_attempts = 3  # Number of retry attempts
                         for attempt in range(retry_attempts):
                             try:
-                                geo_response = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=2, verify=False)
+                                geo_response = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=TIMEOUT, verify=False)
                                 if geo_response.status_code == 200:
                                     break
                             except requests.exceptions.Timeout:
@@ -263,7 +263,7 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                             geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
 
                         try:
-                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}", "https": f"https://{proxy}"}, timeout=2, verify=False)
+                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}", "https": f"https://{proxy}"}, timeout=TIMEOUT, verify=False)
                             if response.status_code == 200:
                                 protocolo_http_encontrado = True
                         except Exception:

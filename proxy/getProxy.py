@@ -157,6 +157,26 @@ def obtener_proxies_proxylistdownload():
         print(f"Error al hacer la solicitud ProxyListDownload")
         return []
 
+
+# Falta poner estos
+def obtener_proxies_github_TheSpeedX_PROXYList():
+    url = "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt"
+    pattern = re.compile(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\:[0-9]+\b')
+    return obtener_proxies_from_url(url, pattern)
+
+def obtener_proxies_github_ErcinDedeoglu_proxies():
+    url = ["https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/http.txt","https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/https.txt"]
+    pattern = re.compile(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\:[0-9]+\b')
+    lista = []
+    for uri in url:
+        lista.extend(obtener_proxies_from_url(uri, pattern))
+    return lista
+# todo poner estos
+    
+
+
+
+
 # Domain not found
 def obtener_proxies_proxy_daily():
     url = "https://proxy-daily.com"
@@ -222,29 +242,36 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
             for source in sources:
                 proxies = source()
                 for proxy in proxies:
+                    if type(proxy) == tuple:
+                        #print("Tuple: ",proxy)
+                        proxy = proxy[0] + ":" + proxy[1]
                     guardar_en_archivo(proxy)
                     warnings.filterwarnings("ignore", category=InsecureRequestWarning)
                     # Geolocate Proxy
-                    geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=0.5, verify=False)
-                    if(geo.status_code == 200):
-                        geo = geo.json()
-                        # Check if the proxy is Up and print the country, region and city
-                        try:
-                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=0.1, verify=False)
-                            if response.status_code == 200:
-                                protocolo_http_encontrado = True
-                        except Exception as e:
+                    try:
+                        geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=0.5, verify=False)
+                        if(geo.status_code == 200):
+                            geo = geo.json()
+                            # Check if the proxy is Up and print the country, region and city
+                            try:
+                                response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=0.1, verify=False)
+                                if response.status_code == 200:
+                                    protocolo_http_encontrado = True
+                            except Exception as e:
+                                geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
+                        else:
                             geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
-                    else:
-                        geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
-                    country_code = geo.get("countryCode")
-                    location = geo.get("regionName")
-                    city = geo.get("cityName")
-                    geo_info = "[{}, {}, {}]".format(country_code, location, city)
-                    
-                    print(f"{Fore.CYAN}[{intentos}]{Style.RESET_ALL}{Fore.MAGENTA} Proxy Found:{Style.RESET_ALL} {Fore.RED}{proxy.ljust(21)}{Style.RESET_ALL} - {Fore.BLUE}{geo_info.ljust(50)}{Style.RESET_ALL} - {Fore.YELLOW}{time.strftime('%d/%m/%Y %H:%M:%S')}{Style.RESET_ALL}") 
-                    # print(f"[] Proxy encontrado: {proxy.ljust(21)} - {geo_info.ljust(35)}")
-                    #print(f"[{intentos}] Proxy encontrado: {proxy}")
+                        country_code = geo.get("countryCode")
+                        location = geo.get("regionName")
+                        city = geo.get("cityName")
+                        geo_info = "[{}, {}, {}]".format(country_code, location, city)
+                        
+                        print(f"{Fore.CYAN}[{intentos}]{Style.RESET_ALL}{Fore.MAGENTA} Proxy Found:{Style.RESET_ALL} {Fore.RED}{proxy.ljust(21)}{Style.RESET_ALL} - {Fore.BLUE}{geo_info.ljust(50)}{Style.RESET_ALL} - {Fore.YELLOW}{time.strftime('%d/%m/%Y %H:%M:%S')}{Style.RESET_ALL}") 
+                        # print(f"[] Proxy encontrado: {proxy.ljust(21)} - {geo_info.ljust(35)}")
+                        #print(f"[{intentos}] Proxy encontrado: {proxy}")
+                    except Exception as e:
+                        pass
+                        #print(f"{Fore.RED}Error al geolocalizar el proxy:{Style.RESET_ALL} {e}")
 
                     
             if protocolo_http_encontrado:

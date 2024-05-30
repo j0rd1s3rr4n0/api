@@ -310,7 +310,7 @@ def main():
         except Exception as e:
             print(f"Error: {e}")
             retries += 1
-            print(f"Retrying... {retries}/{max_retries}"
+            print(f"Retrying... {retries}/{max_retries}")
     commit_push_y_borrar_archivos()
 
 if __name__ == "__main__":

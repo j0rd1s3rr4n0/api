@@ -12,7 +12,7 @@ import warnings
 from urllib3.exceptions import InsecureRequestWarning
 from colorama import Fore, Style
 lock = Lock()
-
+TIMEOUT = 5
 def commit_push_y_borrar_archivos():
     try:
 	# Hacer fetch y pull
@@ -160,6 +160,26 @@ def obtener_proxies_proxylistdownload():
         print(f"Error al hacer la solicitud ProxyListDownload")
         return []
 
+
+# Falta poner estos
+def obtener_proxies_github_TheSpeedX_PROXYList():
+    url = "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt"
+    pattern = re.compile(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\:[0-9]+\b')
+    return obtener_proxies_from_url(url, pattern)
+
+def obtener_proxies_github_ErcinDedeoglu_proxies():
+    url = ["https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/http.txt","https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/https.txt"]
+    pattern = re.compile(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\:[0-9]+\b')
+    lista = []
+    for uri in url:
+        lista.extend(obtener_proxies_from_url(uri, pattern))
+    return lista
+# todo poner estos
+    
+
+
+
+
 # Domain not found
 def obtener_proxies_proxy_daily():
     url = "https://proxy-daily.com"
@@ -218,15 +238,16 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                 lambda: [proxy for future in as_completed(executor.submit(obtener_proxies_limuproxy, page_number) for page_number in range(1, 41)) for proxy in future.result()],
                 obtener_proxies_proxy_scrape,
                 obtener_proxies_proxylistdownload,
-                #obtener_proxies_proxy_daily,
-                #obtener_proxies_smallseotools,
             ]
 
             for source in sources:
                 proxies = source()
                 for proxy in proxies:
+                    if isinstance(proxy, tuple):
+                        proxy = f"{proxy[0]}:{proxy[1]}"
                     guardar_en_archivo(proxy)
                     warnings.filterwarnings("ignore", category=InsecureRequestWarning)
+
                     # Geolocate Proxy
                     geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=2, verify=False)
                     if(geo.status_code == 200):
@@ -234,22 +255,43 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                         # Check if the proxy is Up and print the country, region and city
                         try:
                             response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=1, verify=False)
+
+                    try:
+                        geo_response = None
+                        retry_attempts = 3  # Number of retry attempts
+                        for attempt in range(retry_attempts):
+                            try:
+                                geo_response = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=TIMEOUT, verify=False)
+                                if geo_response.status_code == 200:
+                                    break
+                            except requests.exceptions.Timeout:
+                                if attempt == retry_attempts - 1:
+                                    raise
+                            except Exception as e:
+                                pass
+                        if geo_response and geo_response.status_code == 200:
+                            geo = geo_response.json()
+                        else:
+                            geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
+
+                        try:
+                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}", "https": f"https://{proxy}"}, timeout=TIMEOUT, verify=False)
                             if response.status_code == 200:
                                 protocolo_http_encontrado = True
-                        except Exception as e:
-                            geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
-                    else:
-                        geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
-                    country_code = geo.get("countryCode")
-                    location = geo.get("regionName")
-                    city = geo.get("cityName")
-                    geo_info = "[{}, {}, {}]".format(country_code, location, city)
-                    
-                    print(f"{Fore.CYAN}[{intentos}]{Style.RESET_ALL}{Fore.MAGENTA} Proxy Found:{Style.RESET_ALL} {Fore.RED}{proxy.ljust(21)}{Style.RESET_ALL} - {Fore.BLUE}{geo_info.ljust(50)}{Style.RESET_ALL} - {Fore.YELLOW}{time.strftime('%d/%m/%Y %H:%M:%S')}{Style.RESET_ALL}") 
-                    # print(f"[] Proxy encontrado: {proxy.ljust(21)} - {geo_info.ljust(35)}")
-                    #print(f"[{intentos}] Proxy encontrado: {proxy}")
+                        except Exception:
+                            pass
 
-                    
+                        country_code = geo.get("countryCode")
+                        location = geo.get("regionName")
+                        city = geo.get("cityName")
+                        geo_info = "[{}, {}, {}]".format(country_code, location, city)
+
+                        print(f"{Fore.CYAN}[{intentos}]{Style.RESET_ALL}{Fore.MAGENTA} Proxy Found:{Style.RESET_ALL} {Fore.RED}{proxy.ljust(21)}{Style.RESET_ALL} - {Fore.BLUE}{geo_info.ljust(50)}{Style.RESET_ALL} - {Fore.YELLOW}{time.strftime('%d/%m/%Y %H:%M:%S')}{Style.RESET_ALL}") 
+                    except requests.exceptions.Timeout:
+                        print(f"{Fore.RED}Timeout while geolocating the proxy: {proxy}{Style.RESET_ALL}")
+                    except Exception as e:
+                        print(f"{Fore.RED}Error while processing the proxy: {proxy} - {e}{Style.RESET_ALL}")
+
             if protocolo_http_encontrado:
                 break
 
@@ -271,7 +313,16 @@ def eliminar_duplicados(archivo_entrada, archivo_salida):
 def main():
     global session
     session = create_session()
-    realizar_solicitudes_concurrentes()
+    retries = 0
+    max_retries = 3
+    while(retries < max_retries):
+        try:
+            realizar_solicitudes_concurrentes()
+            break
+        except Exception as e:
+            print(f"Error: {e}")
+            retries += 1
+            print(f"Retrying... {retries}/{max_retries}")
     commit_push_y_borrar_archivos()
 
 if __name__ == "__main__":

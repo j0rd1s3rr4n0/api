@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.css" integrity="sha512-V+/hMFlGRR2/pLlhJ2Y09XAT3HyQ3nJ1nDTnu0Lej1qQt/itGIKyK4hRUZSBGOrFgIgJblczcrpq8MtskqOg5w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-routing-machine/3.2.12/leaflet-routing-machine.js" integrity="sha512-X+5SK7fKJqI4xU2rbtXhHZ7AeZtiZwEFS+VnN6rbiDUVlaR1lO2B9Gj6SRk+RaZ+xjHtZ3E7D5zyeHsmvwMhDg==" crossorigin="anonymous"></script>
+    <title>Planificación Diaria</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Planificación Diaria</h1>
+
+    <h2>Horario Semanal</h2>
+    <table id="horario-table">
+        <tr>
+            <th>Hora</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+            <th>Domingo</th>
+        </tr>
+        <tbody id="horario-body">
+            <!-- Aquí se generará el contenido del horario -->
+        </tbody>
+    </table>
+
+    <h3 id="trayecto-title" class="hidden">Detalles del Trayecto Casa-Trabajo</h3>
+    <ul id="trayecto-content" class="hidden">
+    </ul>
+    <iframe src="https://www.google.com/maps/d/embed?mid=1tTI2z-H-NX86_VvMcjzet4q0x_dAd48&ehbc=2E312F&noprof=1" width="100%" height="300"></iframe>
+
+    <h2>Plan de Comida y Ejercicio</h2>
+    <h3>Comida</h3>
+    <ul id="comida-list">
+        <li>Desayuno:<a href="#" class="ver-detalles" data-comida="desayuno">Ver Detalles</a></li>
+        <li>Almuerzo:<a href="#" class="ver-detalles" data-comida="almuerzo">Ver Detalles</a></li>
+        <li>Merienda:<a href="#" class="ver-detalles" data-comida="merienda">Ver Detalles</a></li>
+        <li>Cena:<a href="#" class="ver-detalles" data-comida="cena">Ver Detalles</a></li>
+        <li>Snacks:<a href="#" class="ver-detalles" data-comida="snacks">Ver Detalles</a></li>
+    </ul>
+
+    <h3>Ejercicio</h3>
+    <ul id="ejercicio-list">
+        <li>Lunes, Miércoles y Viernes: Ejercicios de fuerza con pesas en casa</li>
+        <li>Martes y Jueves: Ejercicios de calistenia o cardio de alta intensidad</li>
+        <li>Fin de Semana: Días libres para entrenamientos más largos o actividades al aire libre</li>
+    </ul>
+
+    <h2>Consejos para Fomentar Hábitos Saludables</h2>
+    <ul id="consejos-list">
+        <li>Dormir lo Suficiente</li>
+        <li>Reducir el Estrés</li>
+        <li>Leer y Sacar Tiempo para Ti</li>
+        <li>Alimentación Balanceada</li>
+        <li>Ejercicio Regular</li>
+        <li>Limitar el Alcohol y el Tabaco</li>
+    </ul>
+</div>
+
+<!-- Modal para Detalles de Comida -->
+<div class="modal fade" id="modalComida" tabindex="-1" role="dialog" aria-labelledby="modalComidaTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalComidaTitle">Detalles de la Comida</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modalComidaContent">
+        <!-- Contenido de la comida -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    // Datos del horario desde un JSON
+    var horarioData = {
+        "Lunes": ["", "", "Desayuno", "Gimnasio", "Trabajo", "Comida", "Descanso", ""],
+        "Martes": ["", "", "", "Gimnasio", "Trabajo", "Comida", "", ""],
+        "Miércoles": ["", "Desayuno", "", "Gimnasio", "Trabajo", "Comida", "", ""],
+        "Jueves": ["", "", "", "Gimnasio", "Trabajo", "Comida", "", ""],
+        "Viernes": ["", "", "", "Gimnasio", "Trabajo", "Comida", "", ""],
+        "Sábado": ["", "", "", "", "", "Comida", "", ""],
+        "Domingo": ["", "", "", "", "", "", "", ""]
+    };
+
+    // Función para generar el contenido del horario
+    function generarHorario() {
+        var horarioBody = document.getElementById("horario-body");
+
+        // Generar filas para cada hora del día
+        for (var hora = 0; hora < 24; hora++) {
+            var row = document.createElement("tr");
+            var timeCell = document.createElement("td");
+            timeCell.textContent = hora + ":00";
+            row.appendChild(timeCell);
+
+            // Generar celdas para cada día de la semana
+            for (var dia in horarioData) {
+                var cell = document.createElement("td");
+                cell.textContent = horarioData[dia][hora] || "-";
+                row.appendChild(cell);
+            }
+
+            horarioBody.appendChild(row);
+        }
+    }
+
+    // Llamar a la función para generar el horario al cargar la página
+    generarHorario();
+
+    // Cargar el contenido del archivo JSON utilizando AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.responseText);
+            // Actualizar los detalles del trayecto
+            var trayectoTitle = document.getElementById("trayecto-title");
+            trayectoTitle.classList.remove("hidden");
+            var trayectoContent = document.getElementById("trayecto-content");
+            trayectoContent.classList.remove("hidden"); // Mostrar los detalles del trayecto
+            trayectoContent.innerHTML = "<li>Duración del Trayecto: " + data.trayecto + "</li>";
+            
+            // Agregar eventos de clic para los enlaces "Ver Detalles"
+            var verDetallesLinks = document.querySelectorAll(".ver-detalles");
+            verDetallesLinks.forEach(function(link) {
+                link.addEventListener("click", function() {
+                    var comidaSeleccionada = this.getAttribute("data-comida");
+                    var contenidoComida = data.comida[comidaSeleccionada];
+                    document.getElementById("modalComidaContent").innerHTML = "<p>" + contenidoComida + "</p>";
+                    $('#modalComida').modal('show');
+                });
+            });
+        }
+    };
+    xhr.open("GET", "https://raw.githubusercontent.com/j0rd1s3rr4n0/api/main/Health/routine/data.json", true);
+    xhr.send();
+</script>
+
+</body>
+</html>

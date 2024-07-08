@@ -1,0 +1,10 @@
+{
+    "title": "FileUpload",
+    "server": "http://127.0.0.1",
+    "port": 5000,
+    "path": "/upload",
+    "headers": {"Content-Type": "multipart/form-data"},
+    "timeout": 60000,
+    "retryAttempts": 5,
+    "retryDelay": 1000
+}

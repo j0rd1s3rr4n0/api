@@ -15,11 +15,14 @@ lock = Lock()
 
 def commit_push_y_borrar_archivos():
     try:
+	# Hacer fetch y pull
+        subprocess.run(["git", "fetch"])
+        subprocess.run(["git", "pull"])
         # Hacer commit de http.txt
         subprocess.run(["git", "add", "http.txt"])
         subprocess.run(["git", "commit", "-m", f"Update proxyList {str(time.asctime())}"])
         # Hacer push
-        subprocess.run(["git", "push"])
+        subprocess.run(["git", "push","--force"])
         # Eliminar http_proxies.txt
         os.remove("http_proxies.txt")
         print("Archivo http_proxies.txt eliminado.")
@@ -225,12 +228,12 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                     guardar_en_archivo(proxy)
                     warnings.filterwarnings("ignore", category=InsecureRequestWarning)
                     # Geolocate Proxy
-                    geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=0.5, verify=False)
+                    geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=2, verify=False)
                     if(geo.status_code == 200):
                         geo = geo.json()
                         # Check if the proxy is Up and print the country, region and city
                         try:
-                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=0.1, verify=False)
+                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=1, verify=False)
                             if response.status_code == 200:
                                 protocolo_http_encontrado = True
                         except Exception as e:

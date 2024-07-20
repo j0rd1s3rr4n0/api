@@ -255,6 +255,8 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                         # Check if the proxy is Up and print the country, region and city
                         try:
                             response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=1, verify=False)
+                        except Exception:
+                            pass
 
                     try:
                         geo_response = None

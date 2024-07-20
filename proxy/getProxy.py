@@ -257,6 +257,8 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                             response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=1, verify=False)
                         except Exception as e:
                             pass
+                        finally:
+                            pass
                     try:
                         geo_response = None
                         retry_attempts = 3  # Number of retry attempts

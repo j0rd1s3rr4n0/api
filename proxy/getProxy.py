@@ -15,7 +15,7 @@ lock = Lock()
 TIMEOUT = 5
 def commit_push_y_borrar_archivos():
     try:
-	# Hacer fetch y pull
+    # Hacer fetch y pull
         subprocess.run(["git", "fetch"])
         subprocess.run(["git", "pull"])
         # Hacer commit de http.txt

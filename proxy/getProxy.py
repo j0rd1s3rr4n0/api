@@ -249,14 +249,13 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                     warnings.filterwarnings("ignore", category=InsecureRequestWarning)
 
                     # Geolocate Proxy
-                    geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=2, verify=False)
-                    if(geo.status_code == 200):
-                        geo = geo.json()
-                        # Check if the proxy is Up and print the country, region and city
-                        try:
-                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=1, verify=False)
-                        except Exception:
-                            pass
+                    # geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=2, verify=False)
+                    # if(geo.status_code == 200):
+                    #     geo = geo.json()
+                    #     # Check if the proxy is Up and print the country, region and city
+                    #     try:
+                    #         response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=1, verify=False)
+                    #     except:
 
                     try:
                         geo_response = None

@@ -3,3 +3,4 @@ venv/
 proxy/errors.log
 proxy/running
 /venvWin
+/proxy/venvWin

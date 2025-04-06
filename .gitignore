@@ -2,3 +2,4 @@ proxy/http_proxies.txt
 venv/
 proxy/errors.log
 proxy/running
+/venvWin

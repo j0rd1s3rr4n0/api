@@ -4,3 +4,4 @@ proxy/errors.log
 proxy/running
 /venvWin
 /proxy/venvWin
+proxy/proxy_scraper.log

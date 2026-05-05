@@ -402,7 +402,11 @@ class ProxyScraper:
             ["git", "push"],
         ]
         for command in commands:
-            subprocess.run(command, check=True)
+            result = subprocess.run(command, check=True, capture_output=True, text=True)
+            if result.stdout.strip():
+                LOGGER.info(result.stdout.strip())
+            if result.stderr.strip():
+                LOGGER.info(result.stderr.strip())
         LOGGER.info("Cambios subidos a Git")
 
     def run(self) -> None:

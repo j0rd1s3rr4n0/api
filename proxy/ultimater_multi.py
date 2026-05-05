@@ -1,0 +1,494 @@
+import argparse
+import ipaddress
+import logging
+import multiprocessing
+import os
+import random
+import re
+import socket
+import subprocess
+import threading
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+from dataclasses import dataclass
+from datetime import datetime
+from pathlib import Path
+from typing import Iterable, List, Sequence, Set
+
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+
+LOGGER = logging.getLogger("proxy_scraper")
+PROXY_PATTERN = re.compile(
+    r"(?:(?:http|https|socks4|socks5)://)?"
+    r"(?P<host>\b\d{1,3}(?:\.\d{1,3}){3}\b):(?P<port>\d{2,5})"
+)
+THREAD_LOCAL = threading.local()
+
+
+@dataclass(frozen=True)
+class Config:
+    proxy_sources_file: Path = Path("urls.txt")
+    raw_proxies_file: Path = Path("proxies.txt")
+    valid_proxies_file: Path = Path("http.txt")
+    log_file: Path = Path("proxy_scraper.log")
+    timeout: float = 2.0
+    socket_timeout: float = 1.0
+    scrape_workers: int = 128
+    validation_threads: int = 128
+    validation_processes: int = max(1, min(os.cpu_count() or 1, 4))
+    max_validation_proxies: int = 30_000
+    max_response_bytes: int = 5_000_000
+    test_url: str = "http://httpbin.org/ip"
+    batch_size: int = 5_000
+    github_sources: bool = True
+    git_enabled: bool = False
+
+
+SCRAPE_URLS = {
+    "proxyscrape": [
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all",
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=https&timeout=10000&country=all",
+    ],
+    "free-proxy-list": ["https://free-proxy-list.net/"],
+    "sslproxies": ["https://www.sslproxies.org/"],
+    "us-proxy": ["https://www.us-proxy.org/"],
+    "openproxy": [
+        "https://openproxy.space/list/http",
+        "https://openproxy.space/list/https",
+        "https://openproxy.space/list/socks4",
+        "https://openproxy.space/list/socks5",
+    ],
+    "proxy-list.download": [
+        "https://www.proxy-list.download/api/v1/get?type=http",
+        "https://www.proxy-list.download/api/v1/get?type=https",
+    ],
+}
+
+
+GITHUB_PROXY_URLS = [
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt",
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt",
+    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/socks4.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/socks5.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_anonymous/http.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_anonymous/socks4.txt",
+    "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_anonymous/socks5.txt",
+    "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks4.txt",
+    "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks5.txt",
+    "https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt",
+    "https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS4_RAW.txt",
+    "https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS5_RAW.txt",
+    "https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt",
+    "https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/socks4.txt",
+    "https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/socks5.txt",
+    "https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt",
+    "https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks4.txt",
+    "https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/socks5.txt",
+    "https://raw.githubusercontent.com/officialputuid/KangProxy/KangProxy/xResults/Proxies.txt",
+    "https://raw.githubusercontent.com/officialputuid/KangProxy/KangProxy/xResults/RAW.txt",
+    "https://raw.githubusercontent.com/thenasty1337/free-proxy-list/main/data/latest/proxies.txt",
+    "https://raw.githubusercontent.com/thenasty1337/free-proxy-list/main/data/latest/types/http/proxies.txt",
+    "https://raw.githubusercontent.com/thenasty1337/free-proxy-list/main/data/latest/types/socks4/proxies.txt",
+    "https://raw.githubusercontent.com/thenasty1337/free-proxy-list/main/data/latest/types/socks5/proxies.txt",
+    "https://raw.githubusercontent.com/r00tee/Proxy-List/main/Https.txt",
+    "https://raw.githubusercontent.com/r00tee/Proxy-List/main/Socks4.txt",
+    "https://raw.githubusercontent.com/r00tee/Proxy-List/main/Socks5.txt",
+    "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/http/data.txt",
+    "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/socks4/data.txt",
+    "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/socks5/data.txt",
+    "https://raw.githubusercontent.com/ProxyScraper/ProxyScraper/main/http.txt",
+    "https://raw.githubusercontent.com/ProxyScraper/ProxyScraper/main/socks4.txt",
+    "https://raw.githubusercontent.com/ProxyScraper/ProxyScraper/main/socks5.txt",
+]
+
+
+def configure_logging(log_file: Path) -> None:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        handlers=[logging.FileHandler(log_file, encoding="utf-8"), logging.StreamHandler()],
+    )
+
+
+def create_session(retries: int, timeout_pool: int) -> requests.Session:
+    session = requests.Session()
+    retry = Retry(
+        total=retries,
+        connect=retries,
+        read=retries,
+        backoff_factor=0.25,
+        status_forcelist=(429, 500, 502, 503, 504),
+        allowed_methods=("GET", "HEAD", "OPTIONS"),
+        raise_on_status=False,
+    )
+    adapter = HTTPAdapter(
+        max_retries=retry,
+        pool_connections=timeout_pool,
+        pool_maxsize=timeout_pool,
+        pool_block=False,
+    )
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    session.headers.update(
+        {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/124.0 Safari/537.36"
+            ),
+            "Accept": "text/plain,text/html,application/json,*/*;q=0.8",
+            "Connection": "close",
+        }
+    )
+    return session
+
+
+def get_validation_session() -> requests.Session:
+    session = getattr(THREAD_LOCAL, "validation_session", None)
+    if session is None:
+        session = create_session(retries=0, timeout_pool=8)
+        THREAD_LOCAL.validation_session = session
+    return session
+
+
+def normalize_proxy(host: str, port: str) -> str | None:
+    try:
+        ipaddress.ip_address(host)
+        port_number = int(port)
+    except ValueError:
+        return None
+
+    if not 1 <= port_number <= 65535:
+        return None
+    return f"{host}:{port_number}"
+
+
+def extract_proxies(content: str) -> Set[str]:
+    proxies: Set[str] = set()
+    for match in PROXY_PATTERN.finditer(content):
+        proxy = normalize_proxy(match.group("host"), match.group("port"))
+        if proxy:
+            proxies.add(proxy)
+    return proxies
+
+
+def socket_open(proxy: str, timeout: float) -> bool:
+    host, port = proxy.rsplit(":", 1)
+    try:
+        with socket.create_connection((host, int(port)), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+
+def validate_proxy(proxy: str, timeout: float, socket_timeout: float, test_url: str) -> bool:
+    if not socket_open(proxy, socket_timeout):
+        return False
+
+    session = get_validation_session()
+    proxy_url = f"http://{proxy}"
+    try:
+        response = session.get(
+            test_url,
+            proxies={"http": proxy_url, "https": proxy_url},
+            timeout=timeout,
+            allow_redirects=False,
+            stream=True,
+        )
+        response.close()
+        return 200 <= response.status_code < 400
+    except requests.RequestException:
+        return False
+
+
+def validate_chunk(
+    proxies: Sequence[str],
+    timeout: float,
+    socket_timeout: float,
+    test_url: str,
+    threads: int,
+    batch_size: int,
+) -> List[str]:
+    valid: List[str] = []
+    if not proxies:
+        return valid
+
+    workers = max(1, min(threads, len(proxies)))
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        for start in range(0, len(proxies), batch_size):
+            batch = proxies[start : start + batch_size]
+            futures = {
+                executor.submit(validate_proxy, proxy, timeout, socket_timeout, test_url): proxy
+                for proxy in batch
+            }
+            for future in as_completed(futures):
+                proxy = futures[future]
+                try:
+                    if future.result():
+                        valid.append(proxy)
+                except Exception:
+                    continue
+    return valid
+
+
+class ProxyScraper:
+    def __init__(self, config: Config):
+        self.config = config
+        self.scraping_session = create_session(retries=0, timeout_pool=config.scrape_workers)
+        self.proxies: Set[str] = set()
+        self.valid_proxies: Set[str] = set()
+
+    def load_source_urls(self) -> list[tuple[str, str]]:
+        urls: list[tuple[str, str]] = []
+        for source, source_urls in SCRAPE_URLS.items():
+            urls.extend((source, url) for url in source_urls)
+
+        if self.config.github_sources:
+            urls.extend(("github_raw", url) for url in GITHUB_PROXY_URLS)
+
+        try:
+            custom_urls = [
+                line.strip()
+                for line in self.config.proxy_sources_file.read_text(encoding="utf-8").splitlines()
+                if line.strip() and not line.lstrip().startswith("#")
+            ]
+        except FileNotFoundError:
+            LOGGER.warning("Archivo de fuentes no encontrado: %s", self.config.proxy_sources_file)
+            custom_urls = []
+
+        urls.extend(("custom_urls", url) for url in custom_urls)
+        return list(dict.fromkeys(urls))
+
+    def scrape_url(self, source: str, url: str) -> tuple[str, str, Set[str]]:
+        try:
+            response = self.scraping_session.get(url, timeout=self.config.timeout, stream=True)
+            try:
+                response.raise_for_status()
+                content = bytearray()
+                for chunk in response.iter_content(chunk_size=65536):
+                    if not chunk:
+                        continue
+                    content.extend(chunk)
+                    if (
+                        self.config.max_response_bytes > 0
+                        and len(content) >= self.config.max_response_bytes
+                    ):
+                        LOGGER.debug(
+                            "Cortando %s (%s) al llegar a %s bytes",
+                            url,
+                            source,
+                            self.config.max_response_bytes,
+                        )
+                        break
+                text = content.decode(response.encoding or "utf-8", errors="ignore")
+                return source, url, extract_proxies(text)
+            finally:
+                response.close()
+        except requests.RequestException as exc:
+            LOGGER.debug("Error scraping %s (%s): %s", url, source, exc)
+            return source, url, set()
+
+    def scrape_all(self) -> None:
+        urls = self.load_source_urls()
+        if not urls:
+            LOGGER.warning("No hay URLs para scrapear")
+            return
+
+        LOGGER.info("Scraping %s URLs con %s hilos", len(urls), self.config.scrape_workers)
+        per_source: dict[str, int] = {}
+        workers = max(1, min(self.config.scrape_workers, len(urls)))
+
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            futures = {
+                executor.submit(self.scrape_url, source, url): (source, url)
+                for source, url in urls
+            }
+            for future in as_completed(futures):
+                source, _, proxies = future.result()
+                self.proxies.update(proxies)
+                per_source[source] = per_source.get(source, 0) + len(proxies)
+
+        for source, count in sorted(per_source.items()):
+            LOGGER.info("%s: %s proxies encontrados", source, count)
+        LOGGER.info("Total unico de proxies encontrados: %s", len(self.proxies))
+
+    @staticmethod
+    def chunks(items: Sequence[str], chunk_count: int) -> Iterable[list[str]]:
+        chunk_count = max(1, min(chunk_count, len(items)))
+        for index in range(chunk_count):
+            yield list(items[index::chunk_count])
+
+    def validate_all(self) -> None:
+        proxy_list = list(self.proxies)
+        random.shuffle(proxy_list)
+        if not proxy_list:
+            LOGGER.warning("No hay proxies para validar")
+            return
+
+        if self.config.max_validation_proxies > 0 and len(proxy_list) > self.config.max_validation_proxies:
+            LOGGER.info(
+                "Limitando validacion a %s proxies aleatorios de %s encontrados "
+                "(usa --max-proxies 0 para validar todo)",
+                self.config.max_validation_proxies,
+                len(proxy_list),
+            )
+            proxy_list = proxy_list[: self.config.max_validation_proxies]
+
+        processes = max(1, min(self.config.validation_processes, len(proxy_list)))
+        LOGGER.info(
+            "Validando %s proxies con %s procesos hijo x %s hilos",
+            len(proxy_list),
+            processes,
+            self.config.validation_threads,
+        )
+
+        validated = 0
+        with ProcessPoolExecutor(max_workers=processes) as executor:
+            futures = [
+                executor.submit(
+                    validate_chunk,
+                    chunk,
+                    self.config.timeout,
+                    self.config.socket_timeout,
+                    self.config.test_url,
+                    self.config.validation_threads,
+                    self.config.batch_size,
+                )
+                for chunk in self.chunks(proxy_list, processes)
+            ]
+            for future in as_completed(futures):
+                valid_chunk = future.result()
+                self.valid_proxies.update(valid_chunk)
+                validated += 1
+                LOGGER.info(
+                    "Hijo completado %s/%s - validos acumulados: %s",
+                    validated,
+                    processes,
+                    len(self.valid_proxies),
+                )
+
+    def save_proxies(self) -> None:
+        raw_list = sorted(self.proxies)
+        valid_list = list(self.valid_proxies)
+        random.shuffle(valid_list)
+
+        self.config.raw_proxies_file.write_text("\n".join(raw_list) + "\n", encoding="utf-8")
+        self.config.valid_proxies_file.write_text("\n".join(valid_list) + "\n", encoding="utf-8")
+        LOGGER.info(
+            "Proxies guardados: %s brutos en %s, %s validos en %s",
+            len(raw_list),
+            self.config.raw_proxies_file,
+            len(valid_list),
+            self.config.valid_proxies_file,
+        )
+
+    def git_operations(self) -> None:
+        files = [
+            str(self.config.raw_proxies_file),
+            str(self.config.valid_proxies_file),
+            str(Path(__file__).name),
+        ]
+        message = f"Actualizacion automatica proxies: {datetime.now().isoformat(timespec='seconds')}"
+        commands = [
+            ["git", "add", *files],
+            ["git", "commit", "-m", message],
+            ["git", "push"],
+        ]
+        for command in commands:
+            subprocess.run(command, check=True)
+        LOGGER.info("Cambios subidos a Git")
+
+    def run(self) -> None:
+        LOGGER.info("Iniciando scraper multi proceso/multi hilo")
+        self.scrape_all()
+        self.validate_all()
+        self.save_proxies()
+
+        if self.config.git_enabled and self.valid_proxies:
+            try:
+                self.git_operations()
+            except subprocess.CalledProcessError as exc:
+                LOGGER.error("Error en Git: %s", exc)
+        elif self.config.git_enabled:
+            LOGGER.warning("No hay proxies validos para subir a Git")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Scraper de proxies multi proceso y multi hilo basado en ultimater.py"
+    )
+    parser.add_argument("--sources", default="urls.txt", help="Archivo con URLs extra")
+    parser.add_argument("--raw-out", default="proxies.txt", help="Archivo de proxies brutos")
+    parser.add_argument("--valid-out", default="http.txt", help="Archivo de proxies validos")
+    parser.add_argument("--log-file", default="proxy_scraper.log", help="Archivo de log")
+    parser.add_argument("--timeout", type=float, default=2.0, help="Timeout HTTP por request")
+    parser.add_argument("--socket-timeout", type=float, default=1.0, help="Timeout del probe TCP")
+    parser.add_argument("--scrape-workers", type=int, default=128, help="Hilos para scraping")
+    parser.add_argument("--threads", type=int, default=128, help="Hilos por proceso hijo")
+    parser.add_argument(
+        "--processes",
+        type=int,
+        default=max(1, min(os.cpu_count() or 1, 4)),
+        help="Procesos hijo para validacion",
+    )
+    parser.add_argument("--test-url", default="http://httpbin.org/ip", help="URL usada para validar")
+    parser.add_argument(
+        "--max-proxies",
+        type=int,
+        default=30_000,
+        help="Maximo de proxies aleatorios a validar; 0 valida todos",
+    )
+    parser.add_argument(
+        "--max-response-bytes",
+        type=int,
+        default=5_000_000,
+        help="Maximo de bytes leidos por fuente; 0 no limita",
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=5_000,
+        help="Tareas de validacion enviadas por lote dentro de cada hijo",
+    )
+    parser.add_argument(
+        "--no-github",
+        action="store_true",
+        help="Desactiva fuentes publicas de GitHub/raw sin API ni login",
+    )
+    parser.add_argument("--git", action="store_true", help="Hace git add/commit/push al terminar")
+    return parser.parse_args()
+
+
+def build_config(args: argparse.Namespace) -> Config:
+    return Config(
+        proxy_sources_file=Path(args.sources),
+        raw_proxies_file=Path(args.raw_out),
+        valid_proxies_file=Path(args.valid_out),
+        log_file=Path(args.log_file),
+        timeout=args.timeout,
+        socket_timeout=args.socket_timeout,
+        scrape_workers=args.scrape_workers,
+        validation_threads=args.threads,
+        validation_processes=args.processes,
+        max_validation_proxies=args.max_proxies,
+        max_response_bytes=args.max_response_bytes,
+        test_url=args.test_url,
+        batch_size=args.batch_size,
+        github_sources=not args.no_github,
+        git_enabled=args.git,
+    )
+
+
+if __name__ == "__main__":
+    multiprocessing.freeze_support()
+    cli_args = parse_args()
+    cfg = build_config(cli_args)
+    configure_logging(cfg.log_file)
+    ProxyScraper(cfg).run()

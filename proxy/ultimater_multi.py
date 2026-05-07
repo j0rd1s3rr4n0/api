@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Iterable, List, Sequence, Set
+from urllib.parse import urlparse
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -21,10 +22,13 @@ from urllib3.util.retry import Retry
 
 LOGGER = logging.getLogger("proxy_scraper")
 PROXY_PATTERN = re.compile(
-    r"(?:(?:http|https|socks4|socks5)://)?"
-    r"(?P<host>\b\d{1,3}(?:\.\d{1,3}){3}\b):(?P<port>\d{2,5})"
+    r"(?:(?P<scheme>https?|socks(?:4a?|5h?))://)?"
+    r"(?P<host>\b\d{1,3}(?:\.\d{1,3}){3}\b):(?P<port>\d{2,5})",
+    re.IGNORECASE,
 )
 THREAD_LOCAL = threading.local()
+DEFAULT_PROXY_SCHEME = "http"
+SUPPORTED_PROXY_SCHEMES = {"http", "https", "socks4", "socks4a", "socks5", "socks5h"}
 
 
 @dataclass(frozen=True)
@@ -50,6 +54,8 @@ SCRAPE_URLS = {
     "proxyscrape": [
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all",
         "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=https&timeout=10000&country=all",
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=10000&country=all",
+        "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=10000&country=all",
     ],
     "free-proxy-list": ["https://free-proxy-list.net/"],
     "sslproxies": ["https://www.sslproxies.org/"],
@@ -63,6 +69,8 @@ SCRAPE_URLS = {
     "proxy-list.download": [
         "https://www.proxy-list.download/api/v1/get?type=http",
         "https://www.proxy-list.download/api/v1/get?type=https",
+        "https://www.proxy-list.download/api/v1/get?type=socks4",
+        "https://www.proxy-list.download/api/v1/get?type=socks5",
     ],
 }
 
@@ -158,7 +166,7 @@ def get_validation_session() -> requests.Session:
     return session
 
 
-def normalize_proxy(host: str, port: str) -> str | None:
+def normalize_proxy(host: str, port: str, scheme: str | None = None) -> str | None:
     try:
         ipaddress.ip_address(host)
         port_number = int(port)
@@ -167,22 +175,71 @@ def normalize_proxy(host: str, port: str) -> str | None:
 
     if not 1 <= port_number <= 65535:
         return None
-    return f"{host}:{port_number}"
+
+    normalized_scheme = (scheme or DEFAULT_PROXY_SCHEME).lower()
+    if normalized_scheme not in SUPPORTED_PROXY_SCHEMES:
+        return None
+    return f"{normalized_scheme}://{host}:{port_number}"
 
 
-def extract_proxies(content: str) -> Set[str]:
+def parse_proxy(proxy: str) -> tuple[str, str, int] | None:
+    candidate = proxy if "://" in proxy else f"{DEFAULT_PROXY_SCHEME}://{proxy}"
+    parsed = urlparse(candidate)
+    scheme = parsed.scheme.lower()
+    if scheme not in SUPPORTED_PROXY_SCHEMES or not parsed.hostname or parsed.port is None:
+        return None
+    try:
+        ipaddress.ip_address(parsed.hostname)
+    except ValueError:
+        return None
+    if not 1 <= parsed.port <= 65535:
+        return None
+    return scheme, parsed.hostname, parsed.port
+
+
+def proxy_scheme(proxy: str) -> str:
+    parsed = parse_proxy(proxy)
+    return parsed[0] if parsed else "invalid"
+
+
+def infer_source_scheme(source: str, url: str) -> str:
+    parsed = urlparse(url)
+    marker = f"{parsed.path}?{parsed.query}".lower()
+    if "socks5h" in marker:
+        return "socks5h"
+    if "socks5" in marker:
+        return "socks5"
+    if "socks4a" in marker:
+        return "socks4a"
+    if "socks4" in marker:
+        return "socks4"
+    if "protocol=https" in marker or "type=https" in marker or "https_raw" in marker:
+        return "https"
+    if source == "sslproxies":
+        return "https"
+    return DEFAULT_PROXY_SCHEME
+
+
+def extract_proxies(content: str, default_scheme: str = DEFAULT_PROXY_SCHEME) -> Set[str]:
     proxies: Set[str] = set()
     for match in PROXY_PATTERN.finditer(content):
-        proxy = normalize_proxy(match.group("host"), match.group("port"))
+        proxy = normalize_proxy(
+            match.group("host"),
+            match.group("port"),
+            match.group("scheme") or default_scheme,
+        )
         if proxy:
             proxies.add(proxy)
     return proxies
 
 
 def socket_open(proxy: str, timeout: float) -> bool:
-    host, port = proxy.rsplit(":", 1)
+    parsed = parse_proxy(proxy)
+    if parsed is None:
+        return False
+    _, host, port = parsed
     try:
-        with socket.create_connection((host, int(port)), timeout=timeout):
+        with socket.create_connection((host, port), timeout=timeout):
             return True
     except OSError:
         return False
@@ -193,7 +250,7 @@ def validate_proxy(proxy: str, timeout: float, socket_timeout: float, test_url: 
         return False
 
     session = get_validation_session()
-    proxy_url = f"http://{proxy}"
+    proxy_url = proxy if "://" in proxy else f"{DEFAULT_PROXY_SCHEME}://{proxy}"
     try:
         response = session.get(
             test_url,
@@ -288,7 +345,7 @@ class ProxyScraper:
                         )
                         break
                 text = content.decode(response.encoding or "utf-8", errors="ignore")
-                return source, url, extract_proxies(text)
+                return source, url, extract_proxies(text, infer_source_scheme(source, url))
             finally:
                 response.close()
         except requests.RequestException as exc:
@@ -318,6 +375,15 @@ class ProxyScraper:
         for source, count in sorted(per_source.items()):
             LOGGER.info("%s: %s proxies encontrados", source, count)
         LOGGER.info("Total unico de proxies encontrados: %s", len(self.proxies))
+        if self.proxies:
+            by_scheme: dict[str, int] = {}
+            for proxy in self.proxies:
+                scheme = proxy_scheme(proxy)
+                by_scheme[scheme] = by_scheme.get(scheme, 0) + 1
+            LOGGER.info(
+                "Proxies por protocolo: %s",
+                ", ".join(f"{scheme}={count}" for scheme, count in sorted(by_scheme.items())),
+            )
 
     @staticmethod
     def chunks(items: Sequence[str], chunk_count: int) -> Iterable[list[str]]:
@@ -381,6 +447,10 @@ class ProxyScraper:
 
         self.config.raw_proxies_file.write_text("\n".join(raw_list) + "\n", encoding="utf-8")
         self.config.valid_proxies_file.write_text("\n".join(valid_list) + "\n", encoding="utf-8")
+        valid_by_scheme: dict[str, int] = {}
+        for proxy in valid_list:
+            scheme = proxy_scheme(proxy)
+            valid_by_scheme[scheme] = valid_by_scheme.get(scheme, 0) + 1
         LOGGER.info(
             "Proxies guardados: %s brutos en %s, %s validos en %s",
             len(raw_list),
@@ -388,6 +458,11 @@ class ProxyScraper:
             len(valid_list),
             self.config.valid_proxies_file,
         )
+        if valid_by_scheme:
+            LOGGER.info(
+                "Validos por protocolo: %s",
+                ", ".join(f"{scheme}={count}" for scheme, count in sorted(valid_by_scheme.items())),
+            )
 
     def git_operations(self) -> None:
         files = [

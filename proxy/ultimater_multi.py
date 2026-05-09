@@ -42,7 +42,7 @@ class Config:
     scrape_workers: int = 128
     validation_threads: int = 128
     validation_processes: int = max(1, min(os.cpu_count() or 1, 4))
-    max_validation_proxies: int = 30_000
+    max_validation_proxies: int = 0
     max_response_bytes: int = 5_000_000
     test_url: str = "http://httpbin.org/ip"
     batch_size: int = 5_000
@@ -521,7 +521,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--max-proxies",
         type=int,
-        default=30_000,
+        default=0,
         help="Maximo de proxies aleatorios a validar; 0 valida todos",
     )
     parser.add_argument(

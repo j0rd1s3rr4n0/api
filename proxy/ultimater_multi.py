@@ -1,5 +1,6 @@
 import argparse
 import ipaddress
+import json
 import logging
 import multiprocessing
 import os
@@ -8,6 +9,7 @@ import re
 import socket
 import subprocess
 import threading
+import time
 from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime
@@ -22,13 +24,30 @@ from urllib3.util.retry import Retry
 
 LOGGER = logging.getLogger("proxy_scraper")
 PROXY_PATTERN = re.compile(
-    r"(?:(?P<scheme>https?|socks(?:4a?|5h?))://)?"
+    r"(?:(?P<scheme>https?|socks(?:4a?|5h?)|quic)://)?"
     r"(?P<host>\b\d{1,3}(?:\.\d{1,3}){3}\b):(?P<port>\d{2,5})",
     re.IGNORECASE,
 )
 THREAD_LOCAL = threading.local()
 DEFAULT_PROXY_SCHEME = "http"
-SUPPORTED_PROXY_SCHEMES = {"http", "https", "socks4", "socks4a", "socks5", "socks5h"}
+SUPPORTED_PROXY_SCHEMES = {"http", "https", "socks4", "socks4a", "socks5", "socks5h", "quic"}
+COUNTRY_NAMES = {
+    "ES": "Spain",
+    "US": "United States",
+    "FR": "France",
+    "DE": "Germany",
+    "GB": "United Kingdom",
+    "IT": "Italy",
+    "PT": "Portugal",
+    "NL": "Netherlands",
+    "BR": "Brazil",
+    "RU": "Russia",
+    "CN": "China",
+    "JP": "Japan",
+    "CA": "Canada",
+    "MX": "Mexico",
+    "AR": "Argentina",
+}
 
 
 @dataclass(frozen=True)
@@ -36,16 +55,22 @@ class Config:
     proxy_sources_file: Path = Path("urls.txt")
     raw_proxies_file: Path = Path("proxies.txt")
     valid_proxies_file: Path = Path("http.txt")
+    proxy_list_dir: Path = Path("proxieslist")
     log_file: Path = Path("proxy_scraper.log")
     timeout: float = 2.0
     socket_timeout: float = 1.0
     scrape_workers: int = 128
     validation_threads: int = 128
     validation_processes: int = max(1, min(os.cpu_count() or 1, 4))
-    max_validation_proxies: int = 0
+    max_validation_proxies: int = 30_000
     max_response_bytes: int = 5_000_000
     test_url: str = "http://httpbin.org/ip"
     batch_size: int = 5_000
+    batch_pause: float = 0.0
+    low_priority: bool = False
+    geo_enabled: bool = True
+    geo_workers: int = 12
+    geo_timeout: float = 3.0
     github_sources: bool = True
     git_enabled: bool = False
 
@@ -125,6 +150,22 @@ def configure_logging(log_file: Path) -> None:
     )
 
 
+def set_low_process_priority() -> None:
+    try:
+        if os.name == "nt":
+            import ctypes
+
+            below_normal = 0x00004000
+            kernel32 = ctypes.windll.kernel32
+            if kernel32.SetPriorityClass(kernel32.GetCurrentProcess(), below_normal):
+                LOGGER.info("Prioridad del proceso: below normal")
+            return
+        os.nice(10)
+        LOGGER.info("Prioridad del proceso reducida con nice +10")
+    except Exception as exc:
+        LOGGER.warning("No se pudo reducir la prioridad del proceso: %s", exc)
+
+
 def create_session(retries: int, timeout_pool: int) -> requests.Session:
     session = requests.Session()
     retry = Retry(
@@ -200,6 +241,42 @@ def parse_proxy(proxy: str) -> tuple[str, str, int] | None:
 def proxy_scheme(proxy: str) -> str:
     parsed = parse_proxy(proxy)
     return parsed[0] if parsed else "invalid"
+
+
+def proxy_filename(scheme: str) -> str:
+    return f"{scheme.lower()}.txt"
+
+
+def safe_country_dir(country: str) -> str:
+    value = re.sub(r"[^A-Za-z0-9._ -]+", "_", country).strip(" ._")
+    return value or "Unknown"
+
+
+def read_json_file(path: Path) -> dict[str, dict[str, str]]:
+    try:
+        data = path.read_text(encoding="utf-8")
+        loaded = json.loads(data)
+        return loaded if isinstance(loaded, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def write_json_file(path: Path, data: dict[str, dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    text = json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True)
+    path.write_text(text + "\n", encoding="utf-8")
+
+
+def ipinfo_lookup(ip: str, timeout: float) -> dict[str, str]:
+    try:
+        response = requests.get(f"https://ipinfo.io/{ip}/json", timeout=timeout)
+        response.raise_for_status()
+        data = response.json()
+        country_code = str(data.get("country") or "XX").upper()
+        country_name = str(data.get("country_name") or COUNTRY_NAMES.get(country_code) or data.get("country") or "Unknown")
+        return {"country_code": country_code, "country": country_name}
+    except Exception:
+        return {"country_code": "XX", "country": "Unknown"}
 
 
 def infer_source_scheme(source: str, url: str) -> str:
@@ -400,45 +477,68 @@ class ProxyScraper:
 
         if self.config.max_validation_proxies > 0 and len(proxy_list) > self.config.max_validation_proxies:
             LOGGER.info(
-                "Limitando validacion a %s proxies aleatorios de %s encontrados "
-                "(usa --max-proxies 0 para validar todo)",
+                "Validacion por lotes de %s proxies hasta completar %s encontrados "
+                "(usa --max-proxies 0 para un unico lote completo)",
                 self.config.max_validation_proxies,
                 len(proxy_list),
             )
-            proxy_list = proxy_list[: self.config.max_validation_proxies]
 
-        processes = max(1, min(self.config.validation_processes, len(proxy_list)))
-        LOGGER.info(
-            "Validando %s proxies con %s procesos hijo x %s hilos",
-            len(proxy_list),
-            processes,
-            self.config.validation_threads,
-        )
+        batch_limit = self.config.max_validation_proxies if self.config.max_validation_proxies > 0 else len(proxy_list)
+        validation_batches = [
+            proxy_list[index : index + batch_limit]
+            for index in range(0, len(proxy_list), batch_limit)
+        ]
 
-        validated = 0
-        with ProcessPoolExecutor(max_workers=processes) as executor:
-            futures = [
-                executor.submit(
-                    validate_chunk,
-                    chunk,
-                    self.config.timeout,
-                    self.config.socket_timeout,
-                    self.config.test_url,
-                    self.config.validation_threads,
-                    self.config.batch_size,
-                )
-                for chunk in self.chunks(proxy_list, processes)
-            ]
-            for future in as_completed(futures):
-                valid_chunk = future.result()
-                self.valid_proxies.update(valid_chunk)
-                validated += 1
-                LOGGER.info(
-                    "Hijo completado %s/%s - validos acumulados: %s",
-                    validated,
-                    processes,
-                    len(self.valid_proxies),
-                )
+        total_validated = 0
+        for batch_index, batch in enumerate(validation_batches, start=1):
+            processes = max(1, min(self.config.validation_processes, len(batch)))
+            LOGGER.info(
+                "Validando lote %s/%s: %s proxies con %s procesos hijo x %s hilos",
+                batch_index,
+                len(validation_batches),
+                len(batch),
+                processes,
+                self.config.validation_threads,
+            )
+
+            completed_children = 0
+            with ProcessPoolExecutor(max_workers=processes) as executor:
+                futures = [
+                    executor.submit(
+                        validate_chunk,
+                        chunk,
+                        self.config.timeout,
+                        self.config.socket_timeout,
+                        self.config.test_url,
+                        self.config.validation_threads,
+                        self.config.batch_size,
+                    )
+                    for chunk in self.chunks(batch, processes)
+                ]
+                for future in as_completed(futures):
+                    valid_chunk = future.result()
+                    self.valid_proxies.update(valid_chunk)
+                    completed_children += 1
+                    LOGGER.info(
+                        "Lote %s/%s hijo completado %s/%s - validos acumulados: %s",
+                        batch_index,
+                        len(validation_batches),
+                        completed_children,
+                        processes,
+                        len(self.valid_proxies),
+                    )
+            total_validated += len(batch)
+            LOGGER.info(
+                "Lote %s/%s terminado - proxies procesados: %s/%s - validos acumulados: %s",
+                batch_index,
+                len(validation_batches),
+                total_validated,
+                len(proxy_list),
+                len(self.valid_proxies),
+            )
+            if self.config.batch_pause > 0 and batch_index < len(validation_batches):
+                LOGGER.info("Pausa de %.1f segundos antes del siguiente lote", self.config.batch_pause)
+                time.sleep(self.config.batch_pause)
 
     def save_proxies(self) -> None:
         raw_list = sorted(self.proxies)
@@ -447,6 +547,7 @@ class ProxyScraper:
 
         self.config.raw_proxies_file.write_text("\n".join(raw_list) + "\n", encoding="utf-8")
         self.config.valid_proxies_file.write_text("\n".join(valid_list) + "\n", encoding="utf-8")
+        self.save_proxy_lists(valid_list)
         valid_by_scheme: dict[str, int] = {}
         for proxy in valid_list:
             scheme = proxy_scheme(proxy)
@@ -464,10 +565,71 @@ class ProxyScraper:
                 ", ".join(f"{scheme}={count}" for scheme, count in sorted(valid_by_scheme.items())),
             )
 
+    def save_proxy_lists(self, valid_list: Sequence[str]) -> None:
+        root = self.config.proxy_list_dir
+        root.mkdir(parents=True, exist_ok=True)
+
+        by_scheme: dict[str, list[str]] = {}
+        for proxy in valid_list:
+            scheme = proxy_scheme(proxy)
+            by_scheme.setdefault(scheme, []).append(proxy)
+
+        for scheme in sorted(SUPPORTED_PROXY_SCHEMES | set(by_scheme)):
+            proxies = sorted(by_scheme.get(scheme, []))
+            (root / proxy_filename(scheme)).write_text(
+                "\n".join(proxies) + ("\n" if proxies else ""),
+                encoding="utf-8",
+            )
+
+        if not self.config.geo_enabled or not valid_list:
+            return
+
+        cache_path = root / "ipinfo_cache.json"
+        cache = read_json_file(cache_path)
+        ip_to_proxies: dict[str, list[str]] = {}
+        for proxy in valid_list:
+            parsed = parse_proxy(proxy)
+            if parsed:
+                _, host, _ = parsed
+                ip_to_proxies.setdefault(host, []).append(proxy)
+
+        missing = [ip for ip in ip_to_proxies if ip not in cache]
+        if missing:
+            LOGGER.info("Geolocalizando %s IPs con ipinfo", len(missing))
+            workers = max(1, min(self.config.geo_workers, len(missing)))
+            with ThreadPoolExecutor(max_workers=workers) as executor:
+                futures = {executor.submit(ipinfo_lookup, ip, self.config.geo_timeout): ip for ip in missing}
+                for future in as_completed(futures):
+                    cache[futures[future]] = future.result()
+            write_json_file(cache_path, cache)
+
+        global_root = root / "Global"
+        grouped: dict[str, dict[str, list[str]]] = {}
+        for proxy in valid_list:
+            parsed = parse_proxy(proxy)
+            if not parsed:
+                continue
+            scheme, host, _ = parsed
+            info = cache.get(host, {"country": "Unknown", "country_code": "XX"})
+            country = safe_country_dir(info.get("country") or info.get("country_code") or "Unknown")
+            grouped.setdefault(country, {}).setdefault(scheme, []).append(proxy)
+
+        for country, schemes in grouped.items():
+            country_dir = global_root / country
+            country_dir.mkdir(parents=True, exist_ok=True)
+            for scheme in sorted(SUPPORTED_PROXY_SCHEMES | set(schemes)):
+                proxies = sorted(schemes.get(scheme, []))
+                (country_dir / proxy_filename(scheme)).write_text(
+                    "\n".join(proxies) + ("\n" if proxies else ""),
+                    encoding="utf-8",
+                )
+        LOGGER.info("Listas por protocolo y pais guardadas en %s", root)
+
     def git_operations(self) -> None:
         files = [
             str(self.config.raw_proxies_file),
             str(self.config.valid_proxies_file),
+            str(self.config.proxy_list_dir),
             str(Path(__file__).name),
         ]
         message = f"Actualizacion automatica proxies: {datetime.now().isoformat(timespec='seconds')}"
@@ -485,6 +647,8 @@ class ProxyScraper:
         LOGGER.info("Cambios subidos a Git")
 
     def run(self) -> None:
+        if self.config.low_priority:
+            set_low_process_priority()
         LOGGER.info("Iniciando scraper multi proceso/multi hilo")
         self.scrape_all()
         self.validate_all()
@@ -506,6 +670,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sources", default="urls.txt", help="Archivo con URLs extra")
     parser.add_argument("--raw-out", default="proxies.txt", help="Archivo de proxies brutos")
     parser.add_argument("--valid-out", default="http.txt", help="Archivo de proxies validos")
+    parser.add_argument("--proxy-list-dir", default="proxieslist", help="Carpeta para listas por protocolo y pais")
     parser.add_argument("--log-file", default="proxy_scraper.log", help="Archivo de log")
     parser.add_argument("--timeout", type=float, default=2.0, help="Timeout HTTP por request")
     parser.add_argument("--socket-timeout", type=float, default=1.0, help="Timeout del probe TCP")
@@ -521,8 +686,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--max-proxies",
         type=int,
-        default=0,
-        help="Maximo de proxies aleatorios a validar; 0 valida todos",
+        default=30_000,
+        help="Tamano de lote de proxies a validar; 0 valida todos en un unico lote",
     )
     parser.add_argument(
         "--max-response-bytes",
@@ -537,6 +702,20 @@ def parse_args() -> argparse.Namespace:
         help="Tareas de validacion enviadas por lote dentro de cada hijo",
     )
     parser.add_argument(
+        "--batch-pause",
+        type=float,
+        default=0.0,
+        help="Segundos de pausa entre lotes de --max-proxies",
+    )
+    parser.add_argument(
+        "--low-priority",
+        action="store_true",
+        help="Reduce la prioridad del proceso para afectar menos al sistema",
+    )
+    parser.add_argument("--no-geo", action="store_true", help="No geolocaliza proxies con ipinfo")
+    parser.add_argument("--geo-workers", type=int, default=12, help="Hilos para ipinfo/geolocalizacion")
+    parser.add_argument("--geo-timeout", type=float, default=3.0, help="Timeout por consulta ipinfo")
+    parser.add_argument(
         "--no-github",
         action="store_true",
         help="Desactiva fuentes publicas de GitHub/raw sin API ni login",
@@ -550,6 +729,7 @@ def build_config(args: argparse.Namespace) -> Config:
         proxy_sources_file=Path(args.sources),
         raw_proxies_file=Path(args.raw_out),
         valid_proxies_file=Path(args.valid_out),
+        proxy_list_dir=Path(args.proxy_list_dir),
         log_file=Path(args.log_file),
         timeout=args.timeout,
         socket_timeout=args.socket_timeout,
@@ -560,6 +740,11 @@ def build_config(args: argparse.Namespace) -> Config:
         max_response_bytes=args.max_response_bytes,
         test_url=args.test_url,
         batch_size=args.batch_size,
+        batch_pause=args.batch_pause,
+        low_priority=args.low_priority,
+        geo_enabled=not args.no_geo,
+        geo_workers=args.geo_workers,
+        geo_timeout=args.geo_timeout,
         github_sources=not args.no_github,
         git_enabled=args.git,
     )

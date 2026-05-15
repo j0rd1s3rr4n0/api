@@ -249,12 +249,12 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                     warnings.filterwarnings("ignore", category=InsecureRequestWarning)
 
                     # Geolocate Proxy
-                    geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=2, verify=False)
+geo = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=2, verify=True)
                     if(geo.status_code == 200):
                         geo = geo.json()
                         # Check if the proxy is Up and print the country, region and city
                         try:
-                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeout=1, verify=False)
+response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}","https": f"https://{proxy}"}, timeou
                         except Exception as e:
                             pass
                         finally:
@@ -264,7 +264,7 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                         retry_attempts = 3  # Number of retry attempts
                         for attempt in range(retry_attempts):
                             try:
-                                geo_response = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=TIMEOUT, verify=False)
+geo_response = requests.get(f"http://freeipapi.com/api/json/{proxy.split(':')[0]}", timeout=TIMEOUT, verify=True)
                                 if geo_response.status_code == 200:
                                     break
                             except requests.exceptions.Timeout:
@@ -278,7 +278,7 @@ def realizar_solicitudes_concurrentes(max_intentos=2):
                             geo = {"countryCode": "N/A", "regionName": "N/A", "cityName": "N/A"}
 
                         try:
-                            response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}", "https": f"https://{proxy}"}, timeout=TIMEOUT, verify=False)
+response = requests.get("http://httpbin.org/ip", proxies={"http": f"http://{proxy}", "https": f"https://{proxy}"}, timeo
                             if response.status_code == 200:
                                 protocolo_http_encontrado = True
                         except Exception:

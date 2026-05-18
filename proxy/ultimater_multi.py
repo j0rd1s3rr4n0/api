@@ -10,7 +10,7 @@ import socket
 import subprocess
 import threading
 import time
-from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor, as_completed
+from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, ThreadPoolExecutor, as_completed, wait
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -57,6 +57,7 @@ class Config:
     valid_proxies_file: Path = Path("http.txt")
     proxy_list_dir: Path = Path("proxieslist")
     log_file: Path = Path("proxy_scraper.log")
+    lock_file: Path = Path("ultimater_multi.lock")
     timeout: float = 2.0
     socket_timeout: float = 1.0
     scrape_workers: int = 128
@@ -67,6 +68,7 @@ class Config:
     test_url: str = "http://httpbin.org/ip"
     batch_size: int = 5_000
     batch_pause: float = 0.0
+    child_timeout: float = 0.0
     low_priority: bool = False
     geo_enabled: bool = True
     geo_workers: int = 12
@@ -164,6 +166,65 @@ def set_low_process_priority() -> None:
         LOGGER.info("Prioridad del proceso reducida con nice +10")
     except Exception as exc:
         LOGGER.warning("No se pudo reducir la prioridad del proceso: %s", exc)
+
+
+def process_is_running(pid: int) -> bool:
+    if pid <= 0:
+        return False
+    if os.name == "nt":
+        try:
+            import ctypes
+
+            PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+            STILL_ACTIVE = 259
+            kernel32 = ctypes.windll.kernel32
+            handle = kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+            if not handle:
+                return False
+            exit_code = ctypes.c_ulong()
+            try:
+                if not kernel32.GetExitCodeProcess(handle, ctypes.byref(exit_code)):
+                    return False
+                return exit_code.value == STILL_ACTIVE
+            finally:
+                kernel32.CloseHandle(handle)
+        except Exception:
+            return False
+    try:
+        os.kill(pid, 0)
+        return True
+    except OSError:
+        return False
+
+
+def acquire_single_instance_lock(path: Path) -> None:
+    path = path.resolve()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        fd = os.open(str(path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    except FileExistsError:
+        try:
+            pid_text = path.read_text(encoding="utf-8-sig", errors="ignore").strip().splitlines()[0]
+            old_pid = int(pid_text)
+        except Exception:
+            old_pid = 0
+        if process_is_running(old_pid):
+            raise SystemExit(f"Ya hay una ejecucion activa de ultimater_multi.exe (PID {old_pid}).")
+        LOGGER.warning("Lock stale encontrado, se reemplaza: %s", path)
+        try:
+            path.unlink()
+        except OSError:
+            pass
+        fd = os.open(str(path), os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    with os.fdopen(fd, "w", encoding="utf-8") as stream:
+        stream.write(f"{os.getpid()}\n{datetime.now().isoformat()}\n")
+
+
+def release_single_instance_lock(path: Path) -> None:
+    try:
+        path.unlink()
+    except OSError:
+        pass
 
 
 def create_session(retries: int, timeout_pool: int) -> requests.Session:
@@ -354,6 +415,7 @@ def validate_chunk(
     if not proxies:
         return valid
 
+    socket.setdefaulttimeout(max(timeout, socket_timeout, 1.0))
     workers = max(1, min(threads, len(proxies)))
     with ThreadPoolExecutor(max_workers=workers) as executor:
         for start in range(0, len(proxies), batch_size):
@@ -378,6 +440,31 @@ class ProxyScraper:
         self.scraping_session = create_session(retries=0, timeout_pool=config.scrape_workers)
         self.proxies: Set[str] = set()
         self.valid_proxies: Set[str] = set()
+        self.sticky_valid_proxies: Set[str] = self.load_previous_valid_proxies()
+
+    def load_previous_valid_proxies(self) -> Set[str]:
+        candidates: Set[str] = set()
+        paths = [self.config.valid_proxies_file]
+        if self.config.proxy_list_dir.exists():
+            paths.extend(self.config.proxy_list_dir.glob("*.txt"))
+        for path in paths:
+            try:
+                for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+                    raw = line.strip()
+                    if not raw or raw.startswith("#"):
+                        continue
+                    parsed = parse_proxy(raw)
+                    if parsed is None:
+                        continue
+                    scheme, host, port = parsed
+                    proxy = normalize_proxy(host, str(port), scheme)
+                    if proxy:
+                        candidates.add(proxy)
+            except OSError:
+                continue
+        if candidates:
+            LOGGER.info("Proxies validos anteriores cargados para reutilizar: %s", len(candidates))
+        return candidates
 
     def load_source_urls(self) -> list[tuple[str, str]]:
         urls: list[tuple[str, str]] = []
@@ -469,11 +556,21 @@ class ProxyScraper:
             yield list(items[index::chunk_count])
 
     def validate_all(self) -> None:
-        proxy_list = list(self.proxies)
-        random.shuffle(proxy_list)
+        self.proxies.update(self.sticky_valid_proxies)
+        self.valid_proxies.update(self.sticky_valid_proxies)
+        sticky_list = list(self.sticky_valid_proxies)
+        new_list = list(self.proxies - self.sticky_valid_proxies)
+        random.shuffle(sticky_list)
+        random.shuffle(new_list)
+        proxy_list = sticky_list + new_list
         if not proxy_list:
             LOGGER.warning("No hay proxies para validar")
             return
+        if self.sticky_valid_proxies:
+            LOGGER.info(
+                "Reutilizando %s proxies validos previos y validandolos primero",
+                len(self.sticky_valid_proxies),
+            )
 
         if self.config.max_validation_proxies > 0 and len(proxy_list) > self.config.max_validation_proxies:
             LOGGER.info(
@@ -502,7 +599,15 @@ class ProxyScraper:
             )
 
             completed_children = 0
-            with ProcessPoolExecutor(max_workers=processes) as executor:
+            child_timeout = self.config.child_timeout or max(
+                60.0,
+                (self.config.timeout + self.config.socket_timeout + 1.0)
+                * max(1, len(batch) / max(1, self.config.validation_threads * processes))
+                * 3.0,
+            )
+            executor = ProcessPoolExecutor(max_workers=processes)
+            pending: set = set()
+            try:
                 futures = [
                     executor.submit(
                         validate_chunk,
@@ -515,18 +620,59 @@ class ProxyScraper:
                     )
                     for chunk in self.chunks(batch, processes)
                 ]
-                for future in as_completed(futures):
-                    valid_chunk = future.result()
-                    self.valid_proxies.update(valid_chunk)
-                    completed_children += 1
-                    LOGGER.info(
-                        "Lote %s/%s hijo completado %s/%s - validos acumulados: %s",
-                        batch_index,
-                        len(validation_batches),
-                        completed_children,
-                        processes,
-                        len(self.valid_proxies),
-                    )
+                pending = set(futures)
+                deadline = time.monotonic() + child_timeout
+                while pending:
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        LOGGER.error(
+                            "Lote %s/%s excedio %.1fs; cancelando %s hijos pendientes",
+                            batch_index,
+                            len(validation_batches),
+                            child_timeout,
+                            len(pending),
+                        )
+                        for future in pending:
+                            future.cancel()
+                        break
+                    done, pending = wait(pending, timeout=min(10.0, remaining), return_when=FIRST_COMPLETED)
+                    if not done:
+                        LOGGER.info(
+                            "Lote %s/%s esperando hijos: pendientes=%s validos=%s",
+                            batch_index,
+                            len(validation_batches),
+                            len(pending),
+                            len(self.valid_proxies),
+                        )
+                        continue
+                    for future in done:
+                        try:
+                            valid_chunk = future.result()
+                        except Exception as exc:
+                            LOGGER.warning("Hijo de validacion fallo: %s", exc)
+                            valid_chunk = []
+                        self.valid_proxies.update(valid_chunk)
+                        completed_children += 1
+                        LOGGER.info(
+                            "Lote %s/%s hijo completado %s/%s - validos acumulados: %s",
+                            batch_index,
+                            len(validation_batches),
+                            completed_children,
+                            processes,
+                            len(self.valid_proxies),
+                        )
+            finally:
+                terminate = getattr(executor, "terminate_workers", None)
+                kill = getattr(executor, "kill_workers", None)
+                try:
+                    if pending and callable(terminate):
+                        terminate()
+                    elif pending and callable(kill):
+                        kill()
+                    else:
+                        executor.shutdown(wait=False, cancel_futures=True)
+                except Exception:
+                    executor.shutdown(wait=False, cancel_futures=True)
             total_validated += len(batch)
             LOGGER.info(
                 "Lote %s/%s terminado - proxies procesados: %s/%s - validos acumulados: %s",
@@ -672,6 +818,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--valid-out", default="http.txt", help="Archivo de proxies validos")
     parser.add_argument("--proxy-list-dir", default="proxieslist", help="Carpeta para listas por protocolo y pais")
     parser.add_argument("--log-file", default="proxy_scraper.log", help="Archivo de log")
+    parser.add_argument("--lock-file", default="ultimater_multi.lock", help="Lock para evitar ejecuciones solapadas")
     parser.add_argument("--timeout", type=float, default=2.0, help="Timeout HTTP por request")
     parser.add_argument("--socket-timeout", type=float, default=1.0, help="Timeout del probe TCP")
     parser.add_argument("--scrape-workers", type=int, default=128, help="Hilos para scraping")
@@ -708,6 +855,12 @@ def parse_args() -> argparse.Namespace:
         help="Segundos de pausa entre lotes de --max-proxies",
     )
     parser.add_argument(
+        "--child-timeout",
+        type=float,
+        default=0.0,
+        help="Timeout duro por lote de procesos hijo; 0 calcula uno conservador",
+    )
+    parser.add_argument(
         "--low-priority",
         action="store_true",
         help="Reduce la prioridad del proceso para afectar menos al sistema",
@@ -731,6 +884,7 @@ def build_config(args: argparse.Namespace) -> Config:
         valid_proxies_file=Path(args.valid_out),
         proxy_list_dir=Path(args.proxy_list_dir),
         log_file=Path(args.log_file),
+        lock_file=Path(args.lock_file),
         timeout=args.timeout,
         socket_timeout=args.socket_timeout,
         scrape_workers=args.scrape_workers,
@@ -741,6 +895,7 @@ def build_config(args: argparse.Namespace) -> Config:
         test_url=args.test_url,
         batch_size=args.batch_size,
         batch_pause=args.batch_pause,
+        child_timeout=args.child_timeout,
         low_priority=args.low_priority,
         geo_enabled=not args.no_geo,
         geo_workers=args.geo_workers,
@@ -755,4 +910,8 @@ if __name__ == "__main__":
     cli_args = parse_args()
     cfg = build_config(cli_args)
     configure_logging(cfg.log_file)
-    ProxyScraper(cfg).run()
+    acquire_single_instance_lock(cfg.lock_file)
+    try:
+        ProxyScraper(cfg).run()
+    finally:
+        release_single_instance_lock(cfg.lock_file)

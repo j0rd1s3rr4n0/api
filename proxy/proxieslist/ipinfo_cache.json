@@ -1139,6 +1139,10 @@
     "country": "ID",
     "country_code": "ID"
   },
+  "103.145.34.166": {
+    "country": "ID",
+    "country_code": "ID"
+  },
   "103.146.137.157": {
     "country": "PK",
     "country_code": "PK"
@@ -5811,6 +5815,10 @@
     "country": "KR",
     "country_code": "KR"
   },
+  "116.104.250.118": {
+    "country": "VN",
+    "country_code": "VN"
+  },
   "116.104.252.1": {
     "country": "VN",
     "country_code": "VN"
@@ -7435,6 +7443,10 @@
     "country": "France",
     "country_code": "FR"
   },
+  "13.38.27.183": {
+    "country": "France",
+    "country_code": "FR"
+  },
   "13.40.239.13": {
     "country": "United Kingdom",
     "country_code": "GB"
@@ -7522,6 +7534,10 @@
   "130.49.185.42": {
     "country": "Netherlands",
     "country_code": "NL"
+  },
+  "130.49.218.108": {
+    "country": "France",
+    "country_code": "FR"
   },
   "130.61.100.135": {
     "country": "Germany",
@@ -7652,6 +7668,10 @@
     "country_code": "SY"
   },
   "131.222.210.172": {
+    "country": "SY",
+    "country_code": "SY"
+  },
+  "131.222.210.36": {
     "country": "SY",
     "country_code": "SY"
   },
@@ -8110,6 +8130,10 @@
   "138.199.25.13": {
     "country": "Unknown",
     "country_code": "XX"
+  },
+  "138.2.156.101": {
+    "country": "Germany",
+    "country_code": "DE"
   },
   "138.2.64.185": {
     "country": "SG",
@@ -10475,6 +10499,10 @@
     "country": "ID",
     "country_code": "ID"
   },
+  "160.22.17.4": {
+    "country": "VN",
+    "country_code": "VN"
+  },
   "160.22.195.228": {
     "country": "Unknown",
     "country_code": "XX"
@@ -11223,6 +11251,14 @@
     "country": "TW",
     "country_code": "TW"
   },
+  "165.154.227.13": {
+    "country": "TW",
+    "country_code": "TW"
+  },
+  "165.154.243.94": {
+    "country": "TW",
+    "country_code": "TW"
+  },
   "165.16.2.234": {
     "country": "LY",
     "country_code": "LY"
@@ -11338,6 +11374,10 @@
   "165.225.72.38": {
     "country": "Germany",
     "country_code": "DE"
+  },
+  "165.225.8.25": {
+    "country": "United States",
+    "country_code": "US"
   },
   "165.227.118.27": {
     "country": "United States",
@@ -11658,6 +11698,10 @@
   "168.138.9.147": {
     "country": "AU",
     "country_code": "AU"
+  },
+  "168.144.41.8": {
+    "country": "SG",
+    "country_code": "SG"
   },
   "168.194.0.249": {
     "country": "Mexico",
@@ -13392,6 +13436,10 @@
     "country_code": "EC"
   },
   "177.234.247.221": {
+    "country": "EC",
+    "country_code": "EC"
+  },
+  "177.234.247.222": {
     "country": "EC",
     "country_code": "EC"
   },
@@ -15827,6 +15875,10 @@
     "country": "Mexico",
     "country_code": "MX"
   },
+  "189.232.80.234": {
+    "country": "Mexico",
+    "country_code": "MX"
+  },
   "189.90.118.105": {
     "country": "Brazil",
     "country_code": "BR"
@@ -15966,6 +16018,10 @@
   "190.2.209.59": {
     "country": "CO",
     "country_code": "CO"
+  },
+  "190.212.131.238": {
+    "country": "NI",
+    "country_code": "NI"
   },
   "190.217.19.121": {
     "country": "CO",
@@ -16595,6 +16651,10 @@
     "country": "Unknown",
     "country_code": "XX"
   },
+  "193.29.224.20": {
+    "country": "Germany",
+    "country_code": "DE"
+  },
   "193.31.27.11": {
     "country": "Germany",
     "country_code": "DE"
@@ -17066,6 +17126,10 @@
   "195.245.238.86": {
     "country": "Russia",
     "country_code": "RU"
+  },
+  "195.25.20.155": {
+    "country": "France",
+    "country_code": "FR"
   },
   "195.250.92.58": {
     "country": "AM",
@@ -17547,9 +17611,17 @@
     "country": "Unknown",
     "country_code": "XX"
   },
+  "2.26.103.146": {
+    "country": "Germany",
+    "country_code": "DE"
+  },
   "2.26.103.243": {
     "country": "Germany",
     "country_code": "DE"
+  },
+  "2.26.87.216": {
+    "country": "FI",
+    "country_code": "FI"
   },
   "2.26.97.98": {
     "country": "FI",
@@ -17806,6 +17878,10 @@
   "200.57.28.140": {
     "country": "Mexico",
     "country_code": "MX"
+  },
+  "200.59.193.34": {
+    "country": "Argentina",
+    "country_code": "AR"
   },
   "200.59.193.46": {
     "country": "Argentina",
@@ -22779,6 +22855,10 @@
     "country": "Unknown",
     "country_code": "XX"
   },
+  "44.237.30.121": {
+    "country": "United States",
+    "country_code": "US"
+  },
   "45.10.163.12": {
     "country": "Germany",
     "country_code": "DE"
@@ -23967,6 +24047,10 @@
     "country": "Japan",
     "country_code": "JP"
   },
+  "47.76.144.139": {
+    "country": "HK",
+    "country_code": "HK"
+  },
   "47.76.148.78": {
     "country": "HK",
     "country_code": "HK"
@@ -24002,6 +24086,10 @@
   "47.79.79.35": {
     "country": "HK",
     "country_code": "HK"
+  },
+  "47.82.145.247": {
+    "country": "SG",
+    "country_code": "SG"
   },
   "47.82.146.247": {
     "country": "SG",
@@ -24438,6 +24526,10 @@
   "5.16.21.117": {
     "country": "Russia",
     "country_code": "RU"
+  },
+  "5.160.103.246": {
+    "country": "IR",
+    "country_code": "IR"
   },
   "5.161.103.41": {
     "country": "United States",
@@ -25046,6 +25138,10 @@
   "54.206.129.120": {
     "country": "AU",
     "country_code": "AU"
+  },
+  "54.213.157.85": {
+    "country": "United States",
+    "country_code": "US"
   },
   "54.215.41.74": {
     "country": "Unknown",
@@ -26359,6 +26455,10 @@
     "country": "Unknown",
     "country_code": "XX"
   },
+  "78.17.34.238": {
+    "country": "FI",
+    "country_code": "FI"
+  },
   "78.187.42.187": {
     "country": "Unknown",
     "country_code": "XX"
@@ -26756,6 +26856,10 @@
     "country_code": "KG"
   },
   "80.74.30.239": {
+    "country": "Netherlands",
+    "country_code": "NL"
+  },
+  "80.74.31.214": {
     "country": "Netherlands",
     "country_code": "NL"
   },
@@ -27870,6 +27974,10 @@
   "91.226.172.214": {
     "country": "Russia",
     "country_code": "RU"
+  },
+  "91.228.155.23": {
+    "country": "Germany",
+    "country_code": "DE"
   },
   "91.229.114.141": {
     "country": "United States",

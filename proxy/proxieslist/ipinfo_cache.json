@@ -4743,6 +4743,10 @@
     "country": "ID",
     "country_code": "ID"
   },
+  "103.82.193.105": {
+    "country": "VN",
+    "country_code": "VN"
+  },
   "103.82.20.18": {
     "country": "VN",
     "country_code": "VN"
@@ -6579,6 +6583,10 @@
     "country": "VN",
     "country_code": "VN"
   },
+  "116.100.221.161": {
+    "country": "VN",
+    "country_code": "VN"
+  },
   "116.101.10.166": {
     "country": "VN",
     "country_code": "VN"
@@ -6736,6 +6744,10 @@
     "country_code": "IN"
   },
   "117.236.124.166": {
+    "country": "IN",
+    "country_code": "IN"
+  },
+  "117.236.124.188": {
     "country": "IN",
     "country_code": "IN"
   },
@@ -26794,6 +26806,10 @@
   "45.181.121.57": {
     "country": "CL",
     "country_code": "CL"
+  },
+  "45.184.103.157": {
+    "country": "VE",
+    "country_code": "VE"
   },
   "45.184.103.160": {
     "country": "VE",

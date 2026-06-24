@@ -8955,6 +8955,10 @@
     "country": "United States",
     "country_code": "US"
   },
+  "130.49.150.81": {
+    "country": "Russia",
+    "country_code": "RU"
+  },
   "130.49.185.42": {
     "country": "Netherlands",
     "country_code": "NL"
@@ -9006,6 +9010,10 @@
   "130.61.235.163": {
     "country": "Unknown",
     "country_code": "XX"
+  },
+  "130.61.34.137": {
+    "country": "Germany",
+    "country_code": "DE"
   },
   "130.89.1.142": {
     "country": "Unknown",
@@ -33508,6 +33516,10 @@
     "country_code": "TW"
   },
   "85.237.207.223": {
+    "country": "TW",
+    "country_code": "TW"
+  },
+  "85.237.207.49": {
     "country": "TW",
     "country_code": "TW"
   },

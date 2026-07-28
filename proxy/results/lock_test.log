@@ -1,0 +1,458 @@
+2026-05-18 10:06:09,199 - WARNING - Lock stale encontrado, se reemplaza: C:\Users\kunakawi\Documents\GitHub\api\proxy\ultimater_multi.lock
+2026-05-18 10:06:09,200 - INFO - Iniciando scraper multi proceso/multi hilo
+2026-05-18 10:06:09,200 - WARNING - Archivo de fuentes no encontrado: no_such_sources.txt
+2026-05-18 10:06:09,201 - INFO - Scraping 15 URLs con 1 hilos
+2026-05-18 10:06:11,668 - INFO - free-proxy-list: 300 proxies encontrados
+2026-05-18 10:06:11,668 - INFO - openproxy: 0 proxies encontrados
+2026-05-18 10:06:11,668 - INFO - proxy-list.download: 0 proxies encontrados
+2026-05-18 10:06:11,668 - INFO - proxyscrape: 31017 proxies encontrados
+2026-05-18 10:06:11,669 - INFO - sslproxies: 100 proxies encontrados
+2026-05-18 10:06:11,669 - INFO - us-proxy: 200 proxies encontrados
+2026-05-18 10:06:11,669 - INFO - Total unico de proxies encontrados: 31465
+2026-05-18 10:06:11,911 - INFO - Proxies por protocolo: http=1129, https=15706, socks4=218, socks5=14412
+2026-05-18 10:06:11,920 - INFO - Validacion por lotes de 1 proxies hasta completar 31465 encontrados (usa --max-proxies 0 para un unico lote completo)
+2026-05-18 10:06:11,928 - INFO - Validando lote 1/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:14,425 - INFO - Lote 1/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:14,425 - INFO - Lote 1/31465 terminado - proxies procesados: 1/31465 - validos acumulados: 0
+2026-05-18 10:06:14,425 - INFO - Validando lote 2/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:16,218 - INFO - Lote 2/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:16,218 - INFO - Lote 2/31465 terminado - proxies procesados: 2/31465 - validos acumulados: 0
+2026-05-18 10:06:16,218 - INFO - Validando lote 3/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:16,804 - INFO - Lote 3/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:16,805 - INFO - Lote 3/31465 terminado - proxies procesados: 3/31465 - validos acumulados: 0
+2026-05-18 10:06:16,805 - INFO - Validando lote 4/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:18,251 - INFO - Lote 4/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:18,251 - INFO - Lote 4/31465 terminado - proxies procesados: 4/31465 - validos acumulados: 0
+2026-05-18 10:06:18,252 - INFO - Validando lote 5/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:21,484 - INFO - Lote 5/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:21,484 - INFO - Lote 5/31465 terminado - proxies procesados: 5/31465 - validos acumulados: 0
+2026-05-18 10:06:21,484 - INFO - Validando lote 6/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:22,933 - INFO - Lote 6/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:22,933 - INFO - Lote 6/31465 terminado - proxies procesados: 6/31465 - validos acumulados: 0
+2026-05-18 10:06:22,934 - INFO - Validando lote 7/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:25,628 - INFO - Lote 7/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:25,628 - INFO - Lote 7/31465 terminado - proxies procesados: 7/31465 - validos acumulados: 0
+2026-05-18 10:06:25,628 - INFO - Validando lote 8/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:28,134 - INFO - Lote 8/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:28,134 - INFO - Lote 8/31465 terminado - proxies procesados: 8/31465 - validos acumulados: 0
+2026-05-18 10:06:28,134 - INFO - Validando lote 9/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:30,737 - INFO - Lote 9/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:30,737 - INFO - Lote 9/31465 terminado - proxies procesados: 9/31465 - validos acumulados: 0
+2026-05-18 10:06:30,737 - INFO - Validando lote 10/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:32,196 - INFO - Lote 10/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:32,196 - INFO - Lote 10/31465 terminado - proxies procesados: 10/31465 - validos acumulados: 0
+2026-05-18 10:06:32,197 - INFO - Validando lote 11/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:33,718 - INFO - Lote 11/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:33,719 - INFO - Lote 11/31465 terminado - proxies procesados: 11/31465 - validos acumulados: 0
+2026-05-18 10:06:33,719 - INFO - Validando lote 12/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:35,153 - INFO - Lote 12/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:35,154 - INFO - Lote 12/31465 terminado - proxies procesados: 12/31465 - validos acumulados: 0
+2026-05-18 10:06:35,154 - INFO - Validando lote 13/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:36,608 - INFO - Lote 13/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:36,608 - INFO - Lote 13/31465 terminado - proxies procesados: 13/31465 - validos acumulados: 0
+2026-05-18 10:06:36,608 - INFO - Validando lote 14/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:38,039 - INFO - Lote 14/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:38,039 - INFO - Lote 14/31465 terminado - proxies procesados: 14/31465 - validos acumulados: 0
+2026-05-18 10:06:38,039 - INFO - Validando lote 15/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:40,567 - INFO - Lote 15/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:40,567 - INFO - Lote 15/31465 terminado - proxies procesados: 15/31465 - validos acumulados: 0
+2026-05-18 10:06:40,567 - INFO - Validando lote 16/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:42,032 - INFO - Lote 16/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:42,032 - INFO - Lote 16/31465 terminado - proxies procesados: 16/31465 - validos acumulados: 0
+2026-05-18 10:06:42,032 - INFO - Validando lote 17/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:43,502 - INFO - Lote 17/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:43,502 - INFO - Lote 17/31465 terminado - proxies procesados: 17/31465 - validos acumulados: 0
+2026-05-18 10:06:43,502 - INFO - Validando lote 18/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:44,930 - INFO - Lote 18/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:44,930 - INFO - Lote 18/31465 terminado - proxies procesados: 18/31465 - validos acumulados: 0
+2026-05-18 10:06:44,930 - INFO - Validando lote 19/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:47,454 - INFO - Lote 19/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:47,454 - INFO - Lote 19/31465 terminado - proxies procesados: 19/31465 - validos acumulados: 0
+2026-05-18 10:06:47,454 - INFO - Validando lote 20/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:48,913 - INFO - Lote 20/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:48,913 - INFO - Lote 20/31465 terminado - proxies procesados: 20/31465 - validos acumulados: 0
+2026-05-18 10:06:48,913 - INFO - Validando lote 21/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:50,346 - INFO - Lote 21/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:50,346 - INFO - Lote 21/31465 terminado - proxies procesados: 21/31465 - validos acumulados: 0
+2026-05-18 10:06:50,346 - INFO - Validando lote 22/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:51,766 - INFO - Lote 22/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:51,766 - INFO - Lote 22/31465 terminado - proxies procesados: 22/31465 - validos acumulados: 0
+2026-05-18 10:06:51,766 - INFO - Validando lote 23/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:53,214 - INFO - Lote 23/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:53,214 - INFO - Lote 23/31465 terminado - proxies procesados: 23/31465 - validos acumulados: 0
+2026-05-18 10:06:53,214 - INFO - Validando lote 24/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:54,661 - INFO - Lote 24/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:54,662 - INFO - Lote 24/31465 terminado - proxies procesados: 24/31465 - validos acumulados: 0
+2026-05-18 10:06:54,662 - INFO - Validando lote 25/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:56,080 - INFO - Lote 25/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:56,080 - INFO - Lote 25/31465 terminado - proxies procesados: 25/31465 - validos acumulados: 0
+2026-05-18 10:06:56,080 - INFO - Validando lote 26/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:56,643 - INFO - Lote 26/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:56,643 - INFO - Lote 26/31465 terminado - proxies procesados: 26/31465 - validos acumulados: 0
+2026-05-18 10:06:56,643 - INFO - Validando lote 27/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:58,118 - INFO - Lote 27/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:58,119 - INFO - Lote 27/31465 terminado - proxies procesados: 27/31465 - validos acumulados: 0
+2026-05-18 10:06:58,119 - INFO - Validando lote 28/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:06:58,699 - INFO - Lote 28/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:06:58,699 - INFO - Lote 28/31465 terminado - proxies procesados: 28/31465 - validos acumulados: 0
+2026-05-18 10:06:58,699 - INFO - Validando lote 29/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:00,139 - INFO - Lote 29/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:00,139 - INFO - Lote 29/31465 terminado - proxies procesados: 29/31465 - validos acumulados: 0
+2026-05-18 10:07:00,139 - INFO - Validando lote 30/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:01,605 - INFO - Lote 30/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:01,605 - INFO - Lote 30/31465 terminado - proxies procesados: 30/31465 - validos acumulados: 0
+2026-05-18 10:07:01,605 - INFO - Validando lote 31/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:04,086 - INFO - Lote 31/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:04,086 - INFO - Lote 31/31465 terminado - proxies procesados: 31/31465 - validos acumulados: 0
+2026-05-18 10:07:04,086 - INFO - Validando lote 32/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:04,705 - INFO - Lote 32/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:04,705 - INFO - Lote 32/31465 terminado - proxies procesados: 32/31465 - validos acumulados: 0
+2026-05-18 10:07:04,705 - INFO - Validando lote 33/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:06,139 - INFO - Lote 33/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:06,139 - INFO - Lote 33/31465 terminado - proxies procesados: 33/31465 - validos acumulados: 0
+2026-05-18 10:07:06,139 - INFO - Validando lote 34/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:07,583 - INFO - Lote 34/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:07,583 - INFO - Lote 34/31465 terminado - proxies procesados: 34/31465 - validos acumulados: 0
+2026-05-18 10:07:07,583 - INFO - Validando lote 35/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:13,082 - INFO - Lote 35/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:13,082 - INFO - Lote 35/31465 terminado - proxies procesados: 35/31465 - validos acumulados: 0
+2026-05-18 10:07:13,082 - INFO - Validando lote 36/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:13,607 - INFO - Lote 36/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:13,607 - INFO - Lote 36/31465 terminado - proxies procesados: 36/31465 - validos acumulados: 0
+2026-05-18 10:07:13,608 - INFO - Validando lote 37/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:15,050 - INFO - Lote 37/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:15,050 - INFO - Lote 37/31465 terminado - proxies procesados: 37/31465 - validos acumulados: 0
+2026-05-18 10:07:15,051 - INFO - Validando lote 38/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:16,458 - INFO - Lote 38/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:16,458 - INFO - Lote 38/31465 terminado - proxies procesados: 38/31465 - validos acumulados: 0
+2026-05-18 10:07:16,458 - INFO - Validando lote 39/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:17,953 - INFO - Lote 39/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:17,953 - INFO - Lote 39/31465 terminado - proxies procesados: 39/31465 - validos acumulados: 0
+2026-05-18 10:07:17,953 - INFO - Validando lote 40/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:19,388 - INFO - Lote 40/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:19,388 - INFO - Lote 40/31465 terminado - proxies procesados: 40/31465 - validos acumulados: 0
+2026-05-18 10:07:19,388 - INFO - Validando lote 41/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:20,842 - INFO - Lote 41/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:20,842 - INFO - Lote 41/31465 terminado - proxies procesados: 41/31465 - validos acumulados: 0
+2026-05-18 10:07:20,843 - INFO - Validando lote 42/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:23,375 - INFO - Lote 42/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:23,375 - INFO - Lote 42/31465 terminado - proxies procesados: 42/31465 - validos acumulados: 0
+2026-05-18 10:07:23,376 - INFO - Validando lote 43/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:28,272 - INFO - Lote 43/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:28,272 - INFO - Lote 43/31465 terminado - proxies procesados: 43/31465 - validos acumulados: 0
+2026-05-18 10:07:28,272 - INFO - Validando lote 44/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:29,691 - INFO - Lote 44/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:29,691 - INFO - Lote 44/31465 terminado - proxies procesados: 44/31465 - validos acumulados: 0
+2026-05-18 10:07:29,692 - INFO - Validando lote 45/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:31,125 - INFO - Lote 45/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:31,125 - INFO - Lote 45/31465 terminado - proxies procesados: 45/31465 - validos acumulados: 0
+2026-05-18 10:07:31,125 - INFO - Validando lote 46/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:32,561 - INFO - Lote 46/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:32,561 - INFO - Lote 46/31465 terminado - proxies procesados: 46/31465 - validos acumulados: 0
+2026-05-18 10:07:32,562 - INFO - Validando lote 47/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:36,470 - INFO - Lote 47/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:36,470 - INFO - Lote 47/31465 terminado - proxies procesados: 47/31465 - validos acumulados: 0
+2026-05-18 10:07:36,470 - INFO - Validando lote 48/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:37,908 - INFO - Lote 48/31465 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:07:37,908 - INFO - Lote 48/31465 terminado - proxies procesados: 48/31465 - validos acumulados: 0
+2026-05-18 10:07:37,908 - INFO - Validando lote 49/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:41,731 - INFO - Lote 49/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:41,731 - INFO - Lote 49/31465 terminado - proxies procesados: 49/31465 - validos acumulados: 1
+2026-05-18 10:07:41,731 - INFO - Validando lote 50/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:46,897 - INFO - Lote 50/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:46,897 - INFO - Lote 50/31465 terminado - proxies procesados: 50/31465 - validos acumulados: 1
+2026-05-18 10:07:46,897 - INFO - Validando lote 51/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:48,313 - INFO - Lote 51/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:48,314 - INFO - Lote 51/31465 terminado - proxies procesados: 51/31465 - validos acumulados: 1
+2026-05-18 10:07:48,314 - INFO - Validando lote 52/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:48,852 - INFO - Lote 52/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:48,852 - INFO - Lote 52/31465 terminado - proxies procesados: 52/31465 - validos acumulados: 1
+2026-05-18 10:07:48,852 - INFO - Validando lote 53/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:50,297 - INFO - Lote 53/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:50,297 - INFO - Lote 53/31465 terminado - proxies procesados: 53/31465 - validos acumulados: 1
+2026-05-18 10:07:50,298 - INFO - Validando lote 54/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:51,718 - INFO - Lote 54/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:51,718 - INFO - Lote 54/31465 terminado - proxies procesados: 54/31465 - validos acumulados: 1
+2026-05-18 10:07:51,718 - INFO - Validando lote 55/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:54,208 - INFO - Lote 55/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:54,208 - INFO - Lote 55/31465 terminado - proxies procesados: 55/31465 - validos acumulados: 1
+2026-05-18 10:07:54,208 - INFO - Validando lote 56/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:55,665 - INFO - Lote 56/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:55,665 - INFO - Lote 56/31465 terminado - proxies procesados: 56/31465 - validos acumulados: 1
+2026-05-18 10:07:55,665 - INFO - Validando lote 57/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:58,146 - INFO - Lote 57/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:58,146 - INFO - Lote 57/31465 terminado - proxies procesados: 57/31465 - validos acumulados: 1
+2026-05-18 10:07:58,146 - INFO - Validando lote 58/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:07:59,611 - INFO - Lote 58/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:07:59,611 - INFO - Lote 58/31465 terminado - proxies procesados: 58/31465 - validos acumulados: 1
+2026-05-18 10:07:59,611 - INFO - Validando lote 59/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:02,115 - INFO - Lote 59/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:08:02,115 - INFO - Lote 59/31465 terminado - proxies procesados: 59/31465 - validos acumulados: 1
+2026-05-18 10:08:02,115 - INFO - Validando lote 60/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:04,672 - INFO - Lote 60/31465 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:08:04,672 - INFO - Lote 60/31465 terminado - proxies procesados: 60/31465 - validos acumulados: 1
+2026-05-18 10:08:04,672 - INFO - Validando lote 61/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:06,328 - INFO - Lote 61/31465 hijo completado 1/1 - validos acumulados: 2
+2026-05-18 10:08:06,328 - INFO - Lote 61/31465 terminado - proxies procesados: 61/31465 - validos acumulados: 2
+2026-05-18 10:08:06,328 - INFO - Validando lote 62/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:08,331 - INFO - Lote 62/31465 hijo completado 1/1 - validos acumulados: 3
+2026-05-18 10:08:08,331 - INFO - Lote 62/31465 terminado - proxies procesados: 62/31465 - validos acumulados: 3
+2026-05-18 10:08:08,331 - INFO - Validando lote 63/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:09,782 - INFO - Lote 63/31465 hijo completado 1/1 - validos acumulados: 3
+2026-05-18 10:08:09,783 - INFO - Lote 63/31465 terminado - proxies procesados: 63/31465 - validos acumulados: 3
+2026-05-18 10:08:09,783 - INFO - Validando lote 64/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:11,791 - INFO - Lote 64/31465 hijo completado 1/1 - validos acumulados: 4
+2026-05-18 10:08:11,791 - INFO - Lote 64/31465 terminado - proxies procesados: 64/31465 - validos acumulados: 4
+2026-05-18 10:08:11,791 - INFO - Validando lote 65/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:15,390 - INFO - Lote 65/31465 hijo completado 1/1 - validos acumulados: 4
+2026-05-18 10:08:15,391 - INFO - Lote 65/31465 terminado - proxies procesados: 65/31465 - validos acumulados: 4
+2026-05-18 10:08:15,391 - INFO - Validando lote 66/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:17,918 - INFO - Lote 66/31465 hijo completado 1/1 - validos acumulados: 4
+2026-05-18 10:08:17,918 - INFO - Lote 66/31465 terminado - proxies procesados: 66/31465 - validos acumulados: 4
+2026-05-18 10:08:17,918 - INFO - Validando lote 67/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:20,368 - INFO - Lote 67/31465 hijo completado 1/1 - validos acumulados: 5
+2026-05-18 10:08:20,368 - INFO - Lote 67/31465 terminado - proxies procesados: 67/31465 - validos acumulados: 5
+2026-05-18 10:08:20,368 - INFO - Validando lote 68/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:21,814 - INFO - Lote 68/31465 hijo completado 1/1 - validos acumulados: 5
+2026-05-18 10:08:21,814 - INFO - Lote 68/31465 terminado - proxies procesados: 68/31465 - validos acumulados: 5
+2026-05-18 10:08:21,814 - INFO - Validando lote 69/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:22,326 - WARNING - Hijo de validacion fallo: A process in the process pool was terminated abruptly while the future was running or pending.
+2026-05-18 10:08:22,326 - INFO - Lote 69/31465 hijo completado 1/1 - validos acumulados: 5
+2026-05-18 10:08:22,327 - INFO - Lote 69/31465 terminado - proxies procesados: 69/31465 - validos acumulados: 5
+2026-05-18 10:08:22,327 - INFO - Validando lote 70/31465: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:39,867 - WARNING - Lock stale encontrado, se reemplaza: C:\Users\kunakawi\Documents\GitHub\api\proxy\ultimater_multi.lock
+2026-05-18 10:08:39,868 - INFO - Iniciando scraper multi proceso/multi hilo
+2026-05-18 10:08:39,868 - WARNING - Archivo de fuentes no encontrado: no_such_sources.txt
+2026-05-18 10:08:39,868 - INFO - Scraping 15 URLs con 1 hilos
+2026-05-18 10:08:43,241 - INFO - free-proxy-list: 300 proxies encontrados
+2026-05-18 10:08:43,242 - INFO - openproxy: 0 proxies encontrados
+2026-05-18 10:08:43,242 - INFO - proxy-list.download: 0 proxies encontrados
+2026-05-18 10:08:43,242 - INFO - proxyscrape: 30387 proxies encontrados
+2026-05-18 10:08:43,242 - INFO - sslproxies: 100 proxies encontrados
+2026-05-18 10:08:43,242 - INFO - us-proxy: 200 proxies encontrados
+2026-05-18 10:08:43,242 - INFO - Total unico de proxies encontrados: 30840
+2026-05-18 10:08:43,471 - INFO - Proxies por protocolo: http=1081, https=15102, socks4=245, socks5=14412
+2026-05-18 10:08:43,477 - INFO - Validacion por lotes de 1 proxies hasta completar 30840 encontrados (usa --max-proxies 0 para un unico lote completo)
+2026-05-18 10:08:43,485 - INFO - Validando lote 1/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:44,983 - INFO - Lote 1/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:44,984 - INFO - Lote 1/30840 terminado - proxies procesados: 1/30840 - validos acumulados: 0
+2026-05-18 10:08:44,984 - INFO - Validando lote 2/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:46,522 - INFO - Lote 2/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:46,522 - INFO - Lote 2/30840 terminado - proxies procesados: 2/30840 - validos acumulados: 0
+2026-05-18 10:08:46,522 - INFO - Validando lote 3/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:48,046 - INFO - Lote 3/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:48,047 - INFO - Lote 3/30840 terminado - proxies procesados: 3/30840 - validos acumulados: 0
+2026-05-18 10:08:48,047 - INFO - Validando lote 4/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:49,549 - INFO - Lote 4/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:49,549 - INFO - Lote 4/30840 terminado - proxies procesados: 4/30840 - validos acumulados: 0
+2026-05-18 10:08:49,549 - INFO - Validando lote 5/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:51,106 - INFO - Lote 5/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:51,106 - INFO - Lote 5/30840 terminado - proxies procesados: 5/30840 - validos acumulados: 0
+2026-05-18 10:08:51,107 - INFO - Validando lote 6/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:55,213 - INFO - Lote 6/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:55,213 - INFO - Lote 6/30840 terminado - proxies procesados: 6/30840 - validos acumulados: 0
+2026-05-18 10:08:55,213 - INFO - Validando lote 7/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:56,731 - INFO - Lote 7/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:56,731 - INFO - Lote 7/30840 terminado - proxies procesados: 7/30840 - validos acumulados: 0
+2026-05-18 10:08:56,731 - INFO - Validando lote 8/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:58,245 - INFO - Lote 8/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:58,245 - INFO - Lote 8/30840 terminado - proxies procesados: 8/30840 - validos acumulados: 0
+2026-05-18 10:08:58,245 - INFO - Validando lote 9/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:08:59,753 - INFO - Lote 9/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:08:59,753 - INFO - Lote 9/30840 terminado - proxies procesados: 9/30840 - validos acumulados: 0
+2026-05-18 10:08:59,753 - INFO - Validando lote 10/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:01,384 - INFO - Lote 10/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:01,384 - INFO - Lote 10/30840 terminado - proxies procesados: 10/30840 - validos acumulados: 0
+2026-05-18 10:09:01,385 - INFO - Validando lote 11/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:02,907 - INFO - Lote 11/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:02,907 - INFO - Lote 11/30840 terminado - proxies procesados: 11/30840 - validos acumulados: 0
+2026-05-18 10:09:02,907 - INFO - Validando lote 12/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:04,392 - INFO - Lote 12/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:04,392 - INFO - Lote 12/30840 terminado - proxies procesados: 12/30840 - validos acumulados: 0
+2026-05-18 10:09:04,392 - INFO - Validando lote 13/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:05,078 - INFO - Lote 13/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:05,078 - INFO - Lote 13/30840 terminado - proxies procesados: 13/30840 - validos acumulados: 0
+2026-05-18 10:09:05,078 - INFO - Validando lote 14/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:06,620 - INFO - Lote 14/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:06,620 - INFO - Lote 14/30840 terminado - proxies procesados: 14/30840 - validos acumulados: 0
+2026-05-18 10:09:06,620 - INFO - Validando lote 15/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:08,106 - INFO - Lote 15/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:08,106 - INFO - Lote 15/30840 terminado - proxies procesados: 15/30840 - validos acumulados: 0
+2026-05-18 10:09:08,106 - INFO - Validando lote 16/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:10,718 - INFO - Lote 16/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:10,718 - INFO - Lote 16/30840 terminado - proxies procesados: 16/30840 - validos acumulados: 0
+2026-05-18 10:09:10,718 - INFO - Validando lote 17/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:14,506 - INFO - Lote 17/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:14,506 - INFO - Lote 17/30840 terminado - proxies procesados: 17/30840 - validos acumulados: 0
+2026-05-18 10:09:14,506 - INFO - Validando lote 18/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:16,076 - INFO - Lote 18/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:16,076 - INFO - Lote 18/30840 terminado - proxies procesados: 18/30840 - validos acumulados: 0
+2026-05-18 10:09:16,077 - INFO - Validando lote 19/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:17,567 - INFO - Lote 19/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:17,567 - INFO - Lote 19/30840 terminado - proxies procesados: 19/30840 - validos acumulados: 0
+2026-05-18 10:09:17,568 - INFO - Validando lote 20/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:19,084 - INFO - Lote 20/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:19,084 - INFO - Lote 20/30840 terminado - proxies procesados: 20/30840 - validos acumulados: 0
+2026-05-18 10:09:19,084 - INFO - Validando lote 21/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:20,615 - INFO - Lote 21/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:20,615 - INFO - Lote 21/30840 terminado - proxies procesados: 21/30840 - validos acumulados: 0
+2026-05-18 10:09:20,615 - INFO - Validando lote 22/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:23,255 - INFO - Lote 22/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:23,255 - INFO - Lote 22/30840 terminado - proxies procesados: 22/30840 - validos acumulados: 0
+2026-05-18 10:09:23,255 - INFO - Validando lote 23/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:24,771 - INFO - Lote 23/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:24,771 - INFO - Lote 23/30840 terminado - proxies procesados: 23/30840 - validos acumulados: 0
+2026-05-18 10:09:24,771 - INFO - Validando lote 24/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:27,367 - INFO - Lote 24/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:27,367 - INFO - Lote 24/30840 terminado - proxies procesados: 24/30840 - validos acumulados: 0
+2026-05-18 10:09:27,367 - INFO - Validando lote 25/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:28,858 - INFO - Lote 25/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:28,858 - INFO - Lote 25/30840 terminado - proxies procesados: 25/30840 - validos acumulados: 0
+2026-05-18 10:09:28,858 - INFO - Validando lote 26/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:31,447 - INFO - Lote 26/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:31,447 - INFO - Lote 26/30840 terminado - proxies procesados: 26/30840 - validos acumulados: 0
+2026-05-18 10:09:31,447 - INFO - Validando lote 27/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:32,974 - INFO - Lote 27/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:32,974 - INFO - Lote 27/30840 terminado - proxies procesados: 27/30840 - validos acumulados: 0
+2026-05-18 10:09:32,974 - INFO - Validando lote 28/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:34,508 - INFO - Lote 28/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:34,508 - INFO - Lote 28/30840 terminado - proxies procesados: 28/30840 - validos acumulados: 0
+2026-05-18 10:09:34,508 - INFO - Validando lote 29/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:37,087 - INFO - Lote 29/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:37,087 - INFO - Lote 29/30840 terminado - proxies procesados: 29/30840 - validos acumulados: 0
+2026-05-18 10:09:37,088 - INFO - Validando lote 30/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:38,603 - INFO - Lote 30/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:38,603 - INFO - Lote 30/30840 terminado - proxies procesados: 30/30840 - validos acumulados: 0
+2026-05-18 10:09:38,603 - INFO - Validando lote 31/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:40,102 - INFO - Lote 31/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:40,102 - INFO - Lote 31/30840 terminado - proxies procesados: 31/30840 - validos acumulados: 0
+2026-05-18 10:09:40,102 - INFO - Validando lote 32/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:41,637 - INFO - Lote 32/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:41,637 - INFO - Lote 32/30840 terminado - proxies procesados: 32/30840 - validos acumulados: 0
+2026-05-18 10:09:41,637 - INFO - Validando lote 33/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:43,176 - INFO - Lote 33/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:43,176 - INFO - Lote 33/30840 terminado - proxies procesados: 33/30840 - validos acumulados: 0
+2026-05-18 10:09:43,176 - INFO - Validando lote 34/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:44,703 - INFO - Lote 34/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:44,704 - INFO - Lote 34/30840 terminado - proxies procesados: 34/30840 - validos acumulados: 0
+2026-05-18 10:09:44,704 - INFO - Validando lote 35/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:46,200 - INFO - Lote 35/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:46,201 - INFO - Lote 35/30840 terminado - proxies procesados: 35/30840 - validos acumulados: 0
+2026-05-18 10:09:46,201 - INFO - Validando lote 36/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:47,713 - INFO - Lote 36/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:47,714 - INFO - Lote 36/30840 terminado - proxies procesados: 36/30840 - validos acumulados: 0
+2026-05-18 10:09:47,714 - INFO - Validando lote 37/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:49,263 - INFO - Lote 37/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:49,263 - INFO - Lote 37/30840 terminado - proxies procesados: 37/30840 - validos acumulados: 0
+2026-05-18 10:09:49,264 - INFO - Validando lote 38/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:50,823 - INFO - Lote 38/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:50,823 - INFO - Lote 38/30840 terminado - proxies procesados: 38/30840 - validos acumulados: 0
+2026-05-18 10:09:50,823 - INFO - Validando lote 39/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:52,332 - INFO - Lote 39/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:52,332 - INFO - Lote 39/30840 terminado - proxies procesados: 39/30840 - validos acumulados: 0
+2026-05-18 10:09:52,332 - INFO - Validando lote 40/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:53,837 - INFO - Lote 40/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:53,837 - INFO - Lote 40/30840 terminado - proxies procesados: 40/30840 - validos acumulados: 0
+2026-05-18 10:09:53,837 - INFO - Validando lote 41/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:55,344 - INFO - Lote 41/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:55,344 - INFO - Lote 41/30840 terminado - proxies procesados: 41/30840 - validos acumulados: 0
+2026-05-18 10:09:55,344 - INFO - Validando lote 42/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:56,886 - INFO - Lote 42/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:56,886 - INFO - Lote 42/30840 terminado - proxies procesados: 42/30840 - validos acumulados: 0
+2026-05-18 10:09:56,886 - INFO - Validando lote 43/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:09:59,588 - INFO - Lote 43/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:09:59,588 - INFO - Lote 43/30840 terminado - proxies procesados: 43/30840 - validos acumulados: 0
+2026-05-18 10:09:59,588 - INFO - Validando lote 44/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:01,134 - INFO - Lote 44/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:01,134 - INFO - Lote 44/30840 terminado - proxies procesados: 44/30840 - validos acumulados: 0
+2026-05-18 10:10:01,134 - INFO - Validando lote 45/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:02,642 - INFO - Lote 45/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:02,642 - INFO - Lote 45/30840 terminado - proxies procesados: 45/30840 - validos acumulados: 0
+2026-05-18 10:10:02,643 - INFO - Validando lote 46/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:04,125 - INFO - Lote 46/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:04,125 - INFO - Lote 46/30840 terminado - proxies procesados: 46/30840 - validos acumulados: 0
+2026-05-18 10:10:04,125 - INFO - Validando lote 47/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:05,626 - INFO - Lote 47/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:05,626 - INFO - Lote 47/30840 terminado - proxies procesados: 47/30840 - validos acumulados: 0
+2026-05-18 10:10:05,627 - INFO - Validando lote 48/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:08,234 - INFO - Lote 48/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:08,234 - INFO - Lote 48/30840 terminado - proxies procesados: 48/30840 - validos acumulados: 0
+2026-05-18 10:10:08,234 - INFO - Validando lote 49/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:10,876 - INFO - Lote 49/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:10,877 - INFO - Lote 49/30840 terminado - proxies procesados: 49/30840 - validos acumulados: 0
+2026-05-18 10:10:10,877 - INFO - Validando lote 50/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:12,403 - INFO - Lote 50/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:12,403 - INFO - Lote 50/30840 terminado - proxies procesados: 50/30840 - validos acumulados: 0
+2026-05-18 10:10:12,403 - INFO - Validando lote 51/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:13,008 - INFO - Lote 51/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:13,008 - INFO - Lote 51/30840 terminado - proxies procesados: 51/30840 - validos acumulados: 0
+2026-05-18 10:10:13,009 - INFO - Validando lote 52/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:14,527 - INFO - Lote 52/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:14,528 - INFO - Lote 52/30840 terminado - proxies procesados: 52/30840 - validos acumulados: 0
+2026-05-18 10:10:14,528 - INFO - Validando lote 53/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:16,063 - INFO - Lote 53/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:16,063 - INFO - Lote 53/30840 terminado - proxies procesados: 53/30840 - validos acumulados: 0
+2026-05-18 10:10:16,064 - INFO - Validando lote 54/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:16,818 - INFO - Lote 54/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:16,818 - INFO - Lote 54/30840 terminado - proxies procesados: 54/30840 - validos acumulados: 0
+2026-05-18 10:10:16,818 - INFO - Validando lote 55/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:18,321 - INFO - Lote 55/30840 hijo completado 1/1 - validos acumulados: 0
+2026-05-18 10:10:18,321 - INFO - Lote 55/30840 terminado - proxies procesados: 55/30840 - validos acumulados: 0
+2026-05-18 10:10:18,321 - INFO - Validando lote 56/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:21,091 - INFO - Lote 56/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:21,091 - INFO - Lote 56/30840 terminado - proxies procesados: 56/30840 - validos acumulados: 1
+2026-05-18 10:10:21,091 - INFO - Validando lote 57/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:22,582 - INFO - Lote 57/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:22,582 - INFO - Lote 57/30840 terminado - proxies procesados: 57/30840 - validos acumulados: 1
+2026-05-18 10:10:22,582 - INFO - Validando lote 58/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:25,212 - INFO - Lote 58/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:25,212 - INFO - Lote 58/30840 terminado - proxies procesados: 58/30840 - validos acumulados: 1
+2026-05-18 10:10:25,212 - INFO - Validando lote 59/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:27,879 - INFO - Lote 59/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:27,880 - INFO - Lote 59/30840 terminado - proxies procesados: 59/30840 - validos acumulados: 1
+2026-05-18 10:10:27,880 - INFO - Validando lote 60/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:29,381 - INFO - Lote 60/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:29,381 - INFO - Lote 60/30840 terminado - proxies procesados: 60/30840 - validos acumulados: 1
+2026-05-18 10:10:29,381 - INFO - Validando lote 61/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:30,921 - INFO - Lote 61/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:30,922 - INFO - Lote 61/30840 terminado - proxies procesados: 61/30840 - validos acumulados: 1
+2026-05-18 10:10:30,922 - INFO - Validando lote 62/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:31,557 - INFO - Lote 62/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:31,558 - INFO - Lote 62/30840 terminado - proxies procesados: 62/30840 - validos acumulados: 1
+2026-05-18 10:10:31,558 - INFO - Validando lote 63/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:33,051 - INFO - Lote 63/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:33,051 - INFO - Lote 63/30840 terminado - proxies procesados: 63/30840 - validos acumulados: 1
+2026-05-18 10:10:33,051 - INFO - Validando lote 64/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:36,891 - INFO - Lote 64/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:36,891 - INFO - Lote 64/30840 terminado - proxies procesados: 64/30840 - validos acumulados: 1
+2026-05-18 10:10:36,891 - INFO - Validando lote 65/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:38,399 - INFO - Lote 65/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:38,399 - INFO - Lote 65/30840 terminado - proxies procesados: 65/30840 - validos acumulados: 1
+2026-05-18 10:10:38,399 - INFO - Validando lote 66/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:39,898 - INFO - Lote 66/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:39,898 - INFO - Lote 66/30840 terminado - proxies procesados: 66/30840 - validos acumulados: 1
+2026-05-18 10:10:39,898 - INFO - Validando lote 67/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:41,421 - INFO - Lote 67/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:41,421 - INFO - Lote 67/30840 terminado - proxies procesados: 67/30840 - validos acumulados: 1
+2026-05-18 10:10:41,421 - INFO - Validando lote 68/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:42,956 - INFO - Lote 68/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:42,957 - INFO - Lote 68/30840 terminado - proxies procesados: 68/30840 - validos acumulados: 1
+2026-05-18 10:10:42,957 - INFO - Validando lote 69/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:44,489 - INFO - Lote 69/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:44,489 - INFO - Lote 69/30840 terminado - proxies procesados: 69/30840 - validos acumulados: 1
+2026-05-18 10:10:44,489 - INFO - Validando lote 70/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:46,036 - INFO - Lote 70/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:46,036 - INFO - Lote 70/30840 terminado - proxies procesados: 70/30840 - validos acumulados: 1
+2026-05-18 10:10:46,036 - INFO - Validando lote 71/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:46,653 - INFO - Lote 71/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:46,653 - INFO - Lote 71/30840 terminado - proxies procesados: 71/30840 - validos acumulados: 1
+2026-05-18 10:10:46,653 - INFO - Validando lote 72/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:48,173 - INFO - Lote 72/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:48,173 - INFO - Lote 72/30840 terminado - proxies procesados: 72/30840 - validos acumulados: 1
+2026-05-18 10:10:48,173 - INFO - Validando lote 73/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:49,666 - INFO - Lote 73/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:49,666 - INFO - Lote 73/30840 terminado - proxies procesados: 73/30840 - validos acumulados: 1
+2026-05-18 10:10:49,666 - INFO - Validando lote 74/30840: 1 proxies con 1 procesos hijo x 1 hilos
+2026-05-18 10:10:51,168 - INFO - Lote 74/30840 hijo completado 1/1 - validos acumulados: 1
+2026-05-18 10:10:51,168 - INFO - Lote 74/30840 terminado - proxies procesados: 74/30840 - validos acumulados: 1
+2026-05-18 10:10:51,168 - INFO - Validando lote 75/30840: 1 proxies con 1 procesos hijo x 1 hilos

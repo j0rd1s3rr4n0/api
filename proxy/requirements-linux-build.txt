@@ -1,0 +1,3 @@
+pyinstaller>=6.0
+requests>=2.31
+PySocks>=1.7.1

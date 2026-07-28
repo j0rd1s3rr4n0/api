@@ -5,6 +5,24 @@ proxy/running
 /venvWin
 /proxy/venvWin
 proxy/proxy_scraper.log
+proxy/logs.log
+
+# Generated proxy/toolkit artifacts
+proxy/build/
+proxy/dist/
+proxy/**/build/
+proxy/**/dist/
+proxy/**/suite_dist/
+proxy/**/__pycache__/
+proxy/**/.tor-data/
+proxy/**/mirror/
+proxy/*.exe
+proxy/**/*.exe
+proxy/**/*.pyc
+proxy/**/cached-certs
+proxy/**/cached-microdesc*
+proxy/**/state
+proxy/**/lock
 
 # Snyk Security Extension - AI Rules (auto-generated)
 .github/instructions/snyk_rules.instructions.md

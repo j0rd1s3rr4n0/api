@@ -1,0 +1,293 @@
+# Dorks defensivos. La app los combina con site:TU_DOMINIO.
+# Usa solo dominios propios o donde tengas autorizacion.
+intitle:"index of" "parent directory"
+intitle:"index of" "backup"
+intitle:"index of" "admin"
+intitle:"index of" "logs"
+intitle:"index of" ".env"
+intitle:"index of" "config.php"
+intitle:"index of" "wp-config.php"
+intitle:"index of" "database.sql"
+intitle:"index of" "dump.sql"
+intitle:"index of" ".git"
+intitle:"index of" ".svn"
+intitle:"index of" "uploads"
+intitle:"index of" "private"
+intitle:"index of" "password"
+intitle:"index of" "passwd"
+filetype:env DB_PASSWORD
+filetype:env APP_KEY
+filetype:ini password
+filetype:conf password
+filetype:yml password
+filetype:sql "INSERT INTO" password
+filetype:sql "CREATE TABLE"
+filetype:log password
+filetype:log "access denied"
+filetype:bak config
+filetype:old config
+filetype:backup config
+filetype:zip backup
+filetype:tar backup
+filetype:gz backup
+filetype:7z backup
+inurl:phpinfo.php "PHP Version"
+intitle:"phpinfo()" "PHP Version"
+inurl:server-status "Apache Server Status"
+inurl:server-info "Apache Server Information"
+intitle:"Apache Status" "Apache Server Status"
+"Warning: mysql_" "on line"
+"Warning: pg_connect" "on line"
+"Fatal error:" "on line"
+"You have an error in your SQL syntax"
+"Microsoft OLE DB Provider for ODBC Drivers error"
+"Index of /" ".htaccess"
+"Index of /" ".htpasswd"
+"Index of /" "web.config"
+inurl:admin intitle:login
+inurl:administrator intitle:login
+inurl:wp-login.php
+inurl:cpanel
+inurl:webmail
+inurl:phpmyadmin
+intitle:phpMyAdmin
+intitle:"Joomla - Web Installer"
+intitle:"WordPress > Setup Configuration File"
+inurl:".git/config"
+inurl:".git/HEAD"
+inurl:"/.well-known/security.txt"
+inurl:robots.txt "Disallow:"
+inurl:sitemap.xml
+site:pastebin.com password
+site:github.com password
+
+# API surface / API discovery
+inurl:/api
+inurl:/api/v1
+inurl:/api/v2
+inurl:/graphql
+inurl:/graphiql
+inurl:/swagger
+inurl:/swagger-ui
+inurl:/swagger.json
+inurl:/openapi.json
+inurl:/api-docs
+inurl:/redoc
+inurl:/postman_collection
+filetype:json "openapi"
+filetype:yaml "openapi"
+filetype:yml "openapi"
+"api key" filetype:json
+"client_id" "client_secret" filetype:json
+
+# Metafiles / index control
+inurl:robots.txt "Disallow:"
+inurl:security.txt
+inurl:humans.txt
+inurl:sitemap.xml
+inurl:sitemap_index.xml
+inurl:ads.txt
+inurl:app-ads.txt
+inurl:crossdomain.xml
+inurl:clientaccesspolicy.xml
+"noindex" "nofollow"
+
+# Source maps and frontend debug artifacts
+filetype:map "sourcesContent"
+filetype:map "webpack"
+inurl:.js.map
+inurl:.css.map
+"sourceMappingURL="
+"webpackJsonp"
+"__NEXT_DATA__"
+"window.__INITIAL_STATE__"
+
+# CI/CD and repository metadata
+inurl:.github/workflows filetype:yml
+inurl:.gitlab-ci.yml
+inurl:Jenkinsfile
+inurl:circleci/config.yml
+inurl:travis.yml
+inurl:azure-pipelines.yml
+inurl:bitbucket-pipelines.yml
+inurl:docker-compose.yml
+inurl:Dockerfile
+filetype:yml "github_token"
+filetype:yml "CI_JOB_TOKEN"
+
+# Package manifests / dependency exposure
+inurl:package.json
+inurl:package-lock.json
+inurl:yarn.lock
+inurl:pnpm-lock.yaml
+inurl:composer.json
+inurl:composer.lock
+inurl:requirements.txt
+inurl:Pipfile
+inurl:poetry.lock
+inurl:Gemfile
+inurl:Gemfile.lock
+inurl:go.mod
+inurl:pom.xml
+inurl:build.gradle
+
+# Cloud/object storage exposure
+site:amazonaws.com "index of"
+site:s3.amazonaws.com "index of"
+site:storage.googleapis.com "index of"
+site:blob.core.windows.net "index of"
+site:digitaloceanspaces.com "index of"
+site:firebaseio.com
+site:firebasestorage.googleapis.com
+"ListBucketResult" "Name" "Prefix"
+"The specified bucket does not exist"
+
+# Status, metrics, observability
+inurl:/status
+inurl:/health
+inurl:/metrics
+inurl:/actuator
+inurl:/actuator/health
+inurl:/actuator/env
+inurl:/actuator/prometheus
+inurl:/server-status
+inurl:/server-info
+intitle:"Grafana"
+intitle:"Kibana"
+intitle:"Prometheus Time Series Collection and Processing Server"
+intitle:"RabbitMQ Management"
+intitle:"Celery Flower"
+
+# CMS/framework fingerprinting
+inurl:/wp-content/
+inurl:/wp-admin/
+inurl:/wp-json/
+inurl:/administrator/ "Joomla"
+inurl:/sites/default/ "Drupal"
+inurl:/user/login "Drupal"
+inurl:/skin/frontend/ "Magento"
+inurl:/app/etc/local.xml
+inurl:/vendor/laravel
+inurl:/.env "Laravel"
+intitle:"Laravel" "Whoops"
+intitle:"Symfony Exception"
+
+# Public docs and office files
+filetype:pdf "confidential"
+filetype:doc "confidential"
+filetype:docx "confidential"
+filetype:xls "confidential"
+filetype:xlsx "confidential"
+filetype:ppt "confidential"
+filetype:pptx "confidential"
+filetype:csv "email"
+filetype:csv "username"
+filetype:pdf "internal use only"
+filetype:xlsx "internal use only"
+
+# Backups and temporary files
+inurl:backup
+inurl:backups
+inurl:old
+inurl:tmp
+inurl:temp
+inurl:staging
+inurl:dev
+inurl:test
+filetype:bak
+filetype:old
+filetype:backup
+filetype:swp
+filetype:tmp
+filetype:tar
+filetype:tgz
+filetype:gz
+filetype:zip
+filetype:7z
+filetype:rar
+
+# Error and debug pages
+"Traceback (most recent call last)"
+"Django Debug Toolbar"
+"Flask Debug"
+"Werkzeug Debugger"
+"Exception Details:" "Django"
+"Whoops! There was an error."
+"Stack trace:" "at line"
+"SQLSTATE[" "PDOException"
+"MongoServerError"
+"ElasticsearchException"
+"RedisException"
+
+# Directory listing / open dirs / autoindex
+intitle:"Index of /" "Parent Directory" "Last modified" "Size"
+intitle:"Index of /" "Name" "Last modified" "Size" "Description"
+intitle:"Index of /" "?C=N;O=D"
+intitle:"Index of /" "?C=M;O=D"
+intitle:"Index of /" "Apache" "Server at"
+intitle:"Index of /" "nginx"
+intitle:"Index of /" "Directory listing for"
+intitle:"Directory listing for /"
+intitle:"Folder Listing" "Name" "Size" "Date/Time"
+intext:"Index of /" intext:"Parent Directory" intext:"Last modified"
+intext:"Directory Listing" intext:"Parent Directory"
+inurl:/files/ intitle:"Index of"
+inurl:/uploads/ intitle:"Index of"
+inurl:/download/ intitle:"Index of"
+inurl:/downloads/ intitle:"Index of"
+inurl:/media/ intitle:"Index of"
+inurl:/assets/ intitle:"Index of"
+inurl:/static/ intitle:"Index of"
+inurl:/public/ intitle:"Index of"
+inurl:/private/ intitle:"Index of"
+inurl:/backup/ intitle:"Index of"
+inurl:/backups/ intitle:"Index of"
+inurl:/old/ intitle:"Index of"
+inurl:/archive/ intitle:"Index of"
+inurl:/tmp/ intitle:"Index of"
+inurl:/temp/ intitle:"Index of"
+inurl:/logs/ intitle:"Index of"
+inurl:/log/ intitle:"Index of"
+inurl:/data/ intitle:"Index of"
+inurl:/db/ intitle:"Index of"
+inurl:/database/ intitle:"Index of"
+inurl:/exports/ intitle:"Index of"
+inurl:/reports/ intitle:"Index of"
+inurl:/documents/ intitle:"Index of"
+inurl:/docs/ intitle:"Index of"
+inurl:/shared/ intitle:"Index of"
+inurl:/share/ intitle:"Index of"
+inurl:/webdav/ intitle:"Index of"
+inurl:/dav/ intitle:"Index of"
+inurl:/remote.php/dav/ intitle:"Index of"
+inurl:/owncloud/remote.php/dav/
+inurl:/nextcloud/remote.php/dav/
+inurl:/webdav/ "Index of"
+inurl:/dav/ "Index of"
+"autoindex" "Parent Directory"
+"ngx_http_autoindex_module" "Index of"
+"Directory: /" "Parent Directory"
+
+# WebDAV visible/expuesto
+inurl:/webdav/
+inurl:/dav/
+inurl:/WebDAV/
+inurl:/webdav "PROPFIND"
+inurl:/dav "PROPFIND"
+intext:"PROPFIND" intext:"207 Multi-Status"
+intext:"DAV:" intext:"PROPFIND"
+intext:"MS-Author-Via" "DAV"
+intext:"Allow:" "PROPFIND"
+intext:"Allow:" "MKCOL"
+intext:"Allow:" "LOCK"
+intext:"Allow:" "UNLOCK"
+intext:"207 Multi-Status" "multistatus"
+filetype:xml "D:multistatus" "D:response"
+filetype:xml "multistatus" "href" "propstat"
+intitle:"WebDAV" "Index of"
+intitle:"WebDAV" "Parent Directory"
+intitle:"WebDAV" "Login"
+intitle:"WebDAV Server"
+"WebDAV" "Apache" "Index of"
+"WebDAV" "nginx" "Index of"
+"WebDAV" "IIS" "Directory Listing"

@@ -319,3 +319,4 @@ https://spys.one/africa-proxy/
 https://spys.one/
 https://spys.one/proxy-city/Barcelona/
 https://spys.one/en/anonymous-proxy-list/
+https://rcloak.com/api/proxies/raw?protocol=all

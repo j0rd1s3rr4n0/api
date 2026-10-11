@@ -181,3 +181,4 @@ https://naawy.com/api/public/proxylist/getList/?proxyType=https&format=txt
 https://naawy.com/api/public/proxylist/getList/?proxyType=http&format=txt
 https://api.proxyscrape.com/?request=getproxies&proxytype=http&timeout=10000&country=all&ssl=all&anonymity=all
 https://api.good-proxies.ru/getfree.php?count=1000&key=freeproxy
+https://rcloak.com/api/proxies/raw?protocol=http

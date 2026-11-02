@@ -4,7 +4,7 @@ Este directorio incluye un compilador simple para generar todos los binarios Lin
 
 ## Herramientas que compila
 
-- `ultimater_multi`
+- `proxy_atlas`
 - `google_dork_auditor`
 - `opendir_downloader`
 - `opendir_downloader_gui`
@@ -47,7 +47,7 @@ linux_dist/
 ./linux_dist/opendir_downloader_gui
 ./linux_dist/google_dork_auditor
 ./linux_dist/opendir_downloader --help
-./linux_dist/ultimater_multi --help
+./linux_dist/proxy_atlas --help
 ```
 
 ## Tor en Linux

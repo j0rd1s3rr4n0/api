@@ -27,3 +27,30 @@ proxy/**/lock
 # Snyk Security Extension - AI Rules (auto-generated)
 .github/instructions/snyk_rules.instructions.md
 .vscode/settings.json
+
+# Unified proxy output and relocated tools
+__pycache__/
+*.pyc
+proxy/*.lock
+proxy/proxieslist/*.json
+proxy/proxieslist/*.csv
+proxy/proxieslist/Providers/
+tools/**/build/
+tools/**/dist/
+tools/**/suite_dist/
+tools/**/.tor-data/
+tools/**/mirror/
+tools/**/*.exe
+
+# Proxy Atlas runtime
+proxy/logs/
+proxy/results/classified/ipinfo_cache.json
+proxy/history/*-journal
+proxy/history/*-wal
+proxy/history/*-shm
+proxy/history/*.tmp
+proxy/history/*.sqlite3
+proxy/history/*.csv
+proxy/golang_checker/proxy_checker
+proxy/golang_checker/proxy_checker.exe
+proxy/golang_checker/*.test

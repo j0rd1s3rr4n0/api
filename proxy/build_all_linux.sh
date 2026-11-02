@@ -49,33 +49,33 @@ log "Creating build virtualenv: $VENV_DIR"
 rm -rf "$DIST_DIR" "$BUILD_DIR"
 mkdir -p "$DIST_DIR" "$BUILD_DIR/work" "$BUILD_DIR/specs"
 
-build_one "ultimater_multi" \
-  "$ROOT_DIR/ultimater_multi.py" \
+build_one "proxy_atlas" \
+  "$ROOT_DIR/proxy_atlas.py" \
   "--console" \
   --hidden-import socks \
   --hidden-import urllib3.contrib.socks
 
 build_one "google_dork_auditor" \
-  "$ROOT_DIR/google_dork_auditor/google_dork_auditor.py" \
+  "$ROOT_DIR/../tools/google_dork_auditor/google_dork_auditor.py" \
   "--windowed" \
-  --add-data "$ROOT_DIR/google_dork_auditor/dorks_seed.txt:."
+  --add-data "$ROOT_DIR/../tools/google_dork_auditor/dorks_seed.txt:."
 
 build_one "opendir_downloader" \
-  "$ROOT_DIR/opendir_downloader/opendir_downloader.py" \
+  "$ROOT_DIR/../tools/opendir_downloader/opendir_downloader.py" \
   "--console" \
-  --paths "$ROOT_DIR/opendir_downloader"
+  --paths "$ROOT_DIR/../tools/opendir_downloader"
 
 build_one "opendir_downloader_gui" \
-  "$ROOT_DIR/opendir_downloader/opendir_downloader_gui.py" \
+  "$ROOT_DIR/../tools/opendir_downloader/opendir_downloader_gui.py" \
   "--windowed" \
-  --paths "$ROOT_DIR/opendir_downloader" \
-  --add-data "$ROOT_DIR/opendir_downloader/opendir_downloader.ico:."
+  --paths "$ROOT_DIR/../tools/opendir_downloader" \
+  --add-data "$ROOT_DIR/../tools/opendir_downloader/opendir_downloader.ico:."
 
 build_one "opendir_downloader_pro" \
-  "$ROOT_DIR/opendir_downloader_pro/opendir_downloader_pro.py" \
+  "$ROOT_DIR/../tools/opendir_downloader_pro/opendir_downloader_pro.py" \
   "--windowed" \
-  --paths "$ROOT_DIR/opendir_downloader_pro" \
-  --add-data "$ROOT_DIR/opendir_downloader_pro/opendir_downloader_pro.ico:."
+  --paths "$ROOT_DIR/../tools/opendir_downloader_pro" \
+  --add-data "$ROOT_DIR/../tools/opendir_downloader_pro/opendir_downloader_pro.ico:."
 
 log "Done. Linux binaries:"
 find "$DIST_DIR" -maxdepth 1 -type f -printf '  %f\n' | sort
